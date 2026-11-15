@@ -47,3 +47,6 @@ pnpm-debug.log*
 # ── Testing ───────────────────────────────────────────────────────────────────
 playwright-report/
 test-results/
+
+# sitereal engine state (one machine, one run)
+.sitereal/

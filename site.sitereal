@@ -1,0 +1,2191 @@
+{
+  "format": "sitereal",
+  "version": 2,
+  "site": {
+    "hosting": {
+      "actions": {
+        "github": true,
+        "host": false
+      },
+      "how": "git"
+    }
+  },
+  "addons": {},
+  "framework": {
+    "enabled": false,
+    "config": {
+      "modules": {},
+      "colors": {
+        "primary": {
+          "hex": "#5b8cff",
+          "on": true
+        },
+        "secondary": {
+          "hex": "#22c55e",
+          "on": false
+        },
+        "tertiary": {
+          "hex": "#a855f7",
+          "on": false
+        },
+        "accent": {
+          "hex": "#ff6a3d",
+          "on": true
+        },
+        "base": {
+          "hex": "#0e1220",
+          "on": true
+        },
+        "neutral": {
+          "hex": "#0b0b0d",
+          "on": true
+        },
+        "success": {
+          "hex": "#22c55e",
+          "on": false
+        },
+        "warning": {
+          "hex": "#f59e0b",
+          "on": false
+        },
+        "info": {
+          "hex": "#3b82f6",
+          "on": false
+        },
+        "danger": {
+          "hex": "#ef4444",
+          "on": false
+        },
+        "white": {
+          "hex": "#ffffff",
+          "on": true
+        },
+        "black": {
+          "hex": "#000000",
+          "on": true
+        }
+      },
+      "unifiedLightness": null,
+      "transparencyVars": true,
+      "shadeVars": true,
+      "shadeStops": {
+        "ultraLight": 95,
+        "light": 85,
+        "medium": 50,
+        "dark": 25,
+        "ultraDark": 10,
+        "hover": -8
+      },
+      "minVw": 375,
+      "maxVw": 1440,
+      "rootFontSize": 100,
+      "typeMinSize": 16,
+      "typeMinRatio": 1.2,
+      "typeMaxSize": 18,
+      "typeMaxRatio": 1.25,
+      "headingMinSize": 18,
+      "headingMinRatio": 1.25,
+      "headingMaxSize": 20,
+      "headingMaxRatio": 1.333,
+      "sizeOverrides": {},
+      "colorOverrides": {},
+      "headingFont": "system-ui, sans-serif",
+      "textFont": "system-ui, sans-serif",
+      "textSize": "var(--text-m)",
+      "textColor": "var(--base-400)",
+      "textWeight": 400,
+      "textLineHeight": "1.6",
+      "headingWeight": 700,
+      "headingLineHeight": "1.1",
+      "headingColor": "var(--base-400)",
+      "spaceMinSize": 16,
+      "spaceMinRatio": 1.5,
+      "spaceMaxSize": 24,
+      "spaceMaxRatio": 1.5,
+      "sectionMinSize": 48,
+      "sectionMinRatio": 1.5,
+      "sectionMaxSize": 80,
+      "sectionMaxRatio": 1.5,
+      "contentWidth": "80rem",
+      "containerSpacing": "var(--space-l)",
+      "contentSpacing": "var(--space-m)",
+      "layoutFluid": false,
+      "contentWidthMin": 640,
+      "contentWidthMax": 1280,
+      "borderWidth": "1px",
+      "borderLight": "var(--neutral-200)",
+      "borderDark": "var(--neutral-400)",
+      "elementStyles": {},
+      "buttons": {
+        "baseClass": "btn",
+        "tokens": {},
+        "variants": [
+          {
+            "id": "primary",
+            "label": "Primary",
+            "kind": "color",
+            "color": "primary",
+            "on": true,
+            "builtin": true
+          },
+          {
+            "id": "secondary",
+            "label": "Secondary",
+            "kind": "color",
+            "color": "secondary",
+            "on": true,
+            "builtin": true
+          },
+          {
+            "id": "tertiary",
+            "label": "Tertiary",
+            "kind": "color",
+            "color": "tertiary",
+            "on": true,
+            "builtin": true
+          },
+          {
+            "id": "accent",
+            "label": "Accent",
+            "kind": "color",
+            "color": "accent",
+            "on": true,
+            "builtin": true
+          },
+          {
+            "id": "base",
+            "label": "Base",
+            "kind": "color",
+            "color": "base",
+            "on": true,
+            "builtin": true
+          },
+          {
+            "id": "neutral",
+            "label": "Neutral",
+            "kind": "color",
+            "color": "neutral",
+            "on": true,
+            "builtin": true
+          },
+          {
+            "id": "success",
+            "label": "Success",
+            "kind": "color",
+            "color": "success",
+            "on": true,
+            "builtin": true
+          },
+          {
+            "id": "warning",
+            "label": "Warning",
+            "kind": "color",
+            "color": "warning",
+            "on": true,
+            "builtin": true
+          },
+          {
+            "id": "info",
+            "label": "Info",
+            "kind": "color",
+            "color": "info",
+            "on": true,
+            "builtin": true
+          },
+          {
+            "id": "danger",
+            "label": "Danger",
+            "kind": "color",
+            "color": "danger",
+            "on": true,
+            "builtin": true
+          },
+          {
+            "id": "white",
+            "label": "White",
+            "kind": "color",
+            "color": "white",
+            "on": true,
+            "builtin": true
+          },
+          {
+            "id": "black",
+            "label": "Black",
+            "kind": "color",
+            "color": "black",
+            "on": true,
+            "builtin": true
+          },
+          {
+            "id": "theme",
+            "label": "Theme",
+            "kind": "color",
+            "color": "primary",
+            "themed": true,
+            "on": true,
+            "builtin": true
+          },
+          {
+            "id": "outline",
+            "label": "Outline",
+            "kind": "style",
+            "on": true,
+            "builtin": true,
+            "tokens": {
+              "background": "transparent",
+              "text-color": "var(--btn-tone)",
+              "border-color": "var(--btn-tone)",
+              "background-hover": "var(--btn-tone)",
+              "text-color-hover": "var(--btn-tone-contrast)",
+              "border-color-hover": "var(--btn-tone)",
+              "shadow": "none"
+            }
+          },
+          {
+            "id": "soft",
+            "label": "Soft",
+            "kind": "style",
+            "on": true,
+            "builtin": true,
+            "tokens": {
+              "background": "var(--btn-tone-soft)",
+              "text-color": "var(--btn-tone)",
+              "border-color": "transparent",
+              "background-hover": "var(--btn-tone)",
+              "text-color-hover": "var(--btn-tone-contrast)",
+              "shadow": "none"
+            }
+          },
+          {
+            "id": "text",
+            "label": "Text",
+            "kind": "style",
+            "on": true,
+            "builtin": true,
+            "tokens": {
+              "background": "transparent",
+              "text-color": "var(--btn-tone)",
+              "border-color": "transparent",
+              "background-hover": "var(--btn-tone-soft)",
+              "text-color-hover": "var(--btn-tone-hover)",
+              "border-color-hover": "transparent",
+              "shadow": "none",
+              "padding-inline": "0.4em"
+            }
+          },
+          {
+            "id": "pill",
+            "label": "Pill",
+            "kind": "style",
+            "on": true,
+            "builtin": true,
+            "tokens": {
+              "border-radius": "999px"
+            }
+          },
+          {
+            "id": "block",
+            "label": "Full width",
+            "kind": "style",
+            "on": true,
+            "builtin": true,
+            "tokens": {
+              "width": "100%"
+            }
+          },
+          {
+            "id": "xs",
+            "label": "Extra small",
+            "kind": "size",
+            "on": true,
+            "builtin": true,
+            "tokens": {
+              "font-size": "var(--text-xs)",
+              "padding-block": "0.5em",
+              "padding-inline": "0.9em"
+            }
+          },
+          {
+            "id": "s",
+            "label": "Small",
+            "kind": "size",
+            "on": true,
+            "builtin": true,
+            "tokens": {
+              "font-size": "var(--text-s)",
+              "padding-block": "0.65em",
+              "padding-inline": "1.1em"
+            }
+          },
+          {
+            "id": "l",
+            "label": "Large",
+            "kind": "size",
+            "on": true,
+            "builtin": true,
+            "tokens": {
+              "font-size": "var(--text-l)",
+              "padding-block": "0.9em",
+              "padding-inline": "1.6em"
+            }
+          },
+          {
+            "id": "xl",
+            "label": "Extra large",
+            "kind": "size",
+            "on": true,
+            "builtin": true,
+            "tokens": {
+              "font-size": "var(--text-xl)",
+              "padding-block": "1em",
+              "padding-inline": "2em"
+            }
+          }
+        ]
+      },
+      "bodyBg": "var(--white)",
+      "radius": "8px",
+      "imageRadius": "0px",
+      "shadowStrength": 0.18,
+      "motionDuration": 700,
+      "motionEase": "smooth",
+      "motionDistance": "32px",
+      "motionStagger": 90,
+      "motionPerspective": "900px",
+      "textures": [],
+      "themes": []
+    }
+  },
+  "variables": [],
+  "styles": [
+    {
+      "id": "glob-sheet-mwi27th1-2",
+      "name": "Global",
+      "rules": []
+    }
+  ],
+  "fonts": [],
+  "icons": [],
+  "components": [],
+  "templates": [],
+  "popups": [],
+  "forms": {
+    "enabled": true,
+    "forms": []
+  },
+  "snippets": [],
+  "collections": {
+    "collections": [],
+    "taxonomies": []
+  },
+  "sources": [],
+  "media": {
+    "collections": [],
+    "assets": {}
+  },
+  "pages": {},
+  "ownPages": {
+    "_file-layouts_sBaseLayout": {
+      "route": "_file-layouts_sBaseLayout",
+      "title": "BaseLayout.astro",
+      "root": [
+        {
+          "id": "r-html-3z",
+          "tag": "html",
+          "classes": [
+            "scroll-smooth"
+          ],
+          "attrs": {
+            "lang": "{brand.locale.split('_')[0]}"
+          },
+          "children": [
+            {
+              "id": "r-head-40",
+              "tag": "head",
+              "children": [
+                {
+                  "id": "r-meta-41",
+                  "tag": "meta",
+                  "attrs": {
+                    "charset": "utf-8"
+                  }
+                },
+                {
+                  "id": "r-meta-42",
+                  "tag": "meta",
+                  "attrs": {
+                    "name": "viewport",
+                    "content": "width=device-width, initial-scale=1"
+                  }
+                },
+                {
+                  "id": "r-meta-43",
+                  "tag": "meta",
+                  "attrs": {
+                    "name": "generator",
+                    "content": "{Astro.generator}"
+                  }
+                },
+                {
+                  "id": "r-link-44",
+                  "tag": "link",
+                  "attrs": {
+                    "rel": "canonical",
+                    "href": "{canonicalURL}"
+                  }
+                },
+                {
+                  "id": "r-title-45",
+                  "tag": "title",
+                  "text": "{pageTitle}"
+                },
+                {
+                  "id": "r-meta-46",
+                  "tag": "meta",
+                  "attrs": {
+                    "name": "description",
+                    "content": "{description}"
+                  }
+                },
+                {
+                  "id": "r-code-47",
+                  "tag": "astro-code",
+                  "attrs": {
+                    "builder-data-element": "code"
+                  },
+                  "children": [],
+                  "html": "<!-- Open Graph -->"
+                },
+                {
+                  "id": "r-meta-48",
+                  "tag": "meta",
+                  "attrs": {
+                    "property": "og:type",
+                    "content": "website"
+                  }
+                },
+                {
+                  "id": "r-meta-49",
+                  "tag": "meta",
+                  "attrs": {
+                    "property": "og:url",
+                    "content": "{canonicalURL}"
+                  }
+                },
+                {
+                  "id": "r-meta-4a",
+                  "tag": "meta",
+                  "attrs": {
+                    "property": "og:title",
+                    "content": "{pageTitle}"
+                  }
+                },
+                {
+                  "id": "r-meta-4b",
+                  "tag": "meta",
+                  "attrs": {
+                    "property": "og:description",
+                    "content": "{description}"
+                  }
+                },
+                {
+                  "id": "r-meta-4c",
+                  "tag": "meta",
+                  "attrs": {
+                    "property": "og:image",
+                    "content": "{image}"
+                  }
+                },
+                {
+                  "id": "r-meta-4d",
+                  "tag": "meta",
+                  "attrs": {
+                    "property": "og:locale",
+                    "content": "{brand.locale}"
+                  }
+                },
+                {
+                  "id": "r-code-4e",
+                  "tag": "astro-code",
+                  "attrs": {
+                    "builder-data-element": "code"
+                  },
+                  "children": [],
+                  "html": "<!-- Twitter Card -->"
+                },
+                {
+                  "id": "r-meta-4f",
+                  "tag": "meta",
+                  "attrs": {
+                    "name": "twitter:card",
+                    "content": "summary_large_image"
+                  }
+                },
+                {
+                  "id": "r-meta-4g",
+                  "tag": "meta",
+                  "attrs": {
+                    "name": "twitter:title",
+                    "content": "{pageTitle}"
+                  }
+                },
+                {
+                  "id": "r-meta-4h",
+                  "tag": "meta",
+                  "attrs": {
+                    "name": "twitter:description",
+                    "content": "{description}"
+                  }
+                },
+                {
+                  "id": "r-meta-4i",
+                  "tag": "meta",
+                  "attrs": {
+                    "name": "twitter:image",
+                    "content": "{image}"
+                  }
+                },
+                {
+                  "id": "r-code-4j",
+                  "tag": "astro-code",
+                  "attrs": {
+                    "builder-data-element": "code"
+                  },
+                  "children": [],
+                  "html": "<!-- Favicon -->"
+                },
+                {
+                  "id": "r-link-4k",
+                  "tag": "link",
+                  "attrs": {
+                    "rel": "icon",
+                    "type": "image/svg+xml",
+                    "href": "/favicon.svg"
+                  }
+                },
+                {
+                  "id": "r-link-4l",
+                  "tag": "link",
+                  "attrs": {
+                    "rel": "icon",
+                    "href": "/favicon.ico"
+                  }
+                },
+                {
+                  "id": "r-code-4m",
+                  "tag": "astro-code",
+                  "attrs": {
+                    "builder-data-element": "code"
+                  },
+                  "children": [],
+                  "html": "<!-- Fonts -->"
+                },
+                {
+                  "id": "r-code-4n",
+                  "tag": "astro-code",
+                  "attrs": {
+                    "builder-data-element": "code"
+                  },
+                  "children": [],
+                  "html": "<Font cssVariable=\"--font-display\" preload />"
+                },
+                {
+                  "id": "r-code-4o",
+                  "tag": "astro-code",
+                  "attrs": {
+                    "builder-data-element": "code"
+                  },
+                  "children": [],
+                  "html": "<Font cssVariable=\"--font-body\"    preload />"
+                },
+                {
+                  "id": "r-code-4p",
+                  "tag": "astro-code",
+                  "attrs": {
+                    "builder-data-element": "code"
+                  },
+                  "children": [],
+                  "html": "<!-- JSON-LD Structured Data -->"
+                },
+                {
+                  "id": "r-code-4q",
+                  "tag": "astro-code",
+                  "attrs": {
+                    "builder-data-element": "code"
+                  },
+                  "children": [],
+                  "html": "{schema && (\n      <script type=\"application/ld+json\" set:html={JSON.stringify(schema)} />\n    )}"
+                },
+                {
+                  "id": "r-code-4r",
+                  "tag": "astro-code",
+                  "attrs": {
+                    "builder-data-element": "code"
+                  },
+                  "children": [],
+                  "html": "<!-- FOUC prevention for dark mode -->"
+                },
+                {
+                  "id": "r-script-4s",
+                  "tag": "script",
+                  "html": "\n      (function(){\n        var t = localStorage.getItem('theme');\n        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {\n          document.documentElement.classList.add('dark-mode');\n        }\n      })();\n    "
+                },
+                {
+                  "id": "r-slot-4t",
+                  "tag": "slot",
+                  "attrs": {
+                    "name": "head"
+                  }
+                },
+                {
+                  "id": "r-code-4u",
+                  "tag": "astro-code",
+                  "attrs": {
+                    "builder-data-element": "code"
+                  },
+                  "children": [],
+                  "html": "<ClientRouter />"
+                }
+              ]
+            },
+            {
+              "id": "r-body-4v",
+              "tag": "body",
+              "classes": [
+                "bg-background",
+                "text-text",
+                "font-body",
+                "antialiased"
+              ],
+              "children": [
+                {
+                  "id": "r-a-4w",
+                  "tag": "a",
+                  "classes": [
+                    "sr-only",
+                    "focus:not-sr-only",
+                    "focus:absolute",
+                    "focus:z-[99999]",
+                    "focus:bg-primary",
+                    "focus:text-primary-fg",
+                    "focus:px-4",
+                    "focus:py-2",
+                    "focus:rounded-md"
+                  ],
+                  "attrs": {
+                    "href": "#main"
+                  },
+                  "text": "Skip to main content"
+                },
+                {
+                  "id": "r-slot-4x",
+                  "tag": "slot",
+                  "attrs": {
+                    "name": "header"
+                  }
+                },
+                {
+                  "id": "r-main-4y",
+                  "tag": "main",
+                  "attrs": {
+                    "id": "main"
+                  },
+                  "children": [
+                    {
+                      "id": "r-slot-4z",
+                      "tag": "slot",
+                      "attrs": {
+                        "builder-data-element": "slot"
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "id": "r-slot-50",
+                  "tag": "slot",
+                  "attrs": {
+                    "name": "footer"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "frontmatter": "/**\n * Base layout — wraps every page.\n *\n * Astro 6 features used:\n *  • <Font />         — built-in font optimizer from astro.config.mjs fonts array\n *  • <ClientRouter /> — client-side navigation with CSS transition animations\n */\nimport { Font } from 'astro:assets';\nimport { ClientRouter } from 'astro:transitions';\nimport '../styles/global.css';\nimport { brand } from '../config/brand';\nimport { client } from '../data/client';\n\ninterface Props {\n  title?: string;\n  description?: string;\n  image?: string;\n  schema?: Record<string, unknown>;\n}\n\nconst {\n  title = brand.name,\n  description = brand.description,\n  image = '/og-image.png',\n  schema,\n} = Astro.props;\n\nconst pageTitle = title === brand.name ? title : `${title} — ${brand.name}`;\nconst canonicalURL = new URL(Astro.url.pathname, Astro.site ?? brand.url);",
+      "stylesheets": [
+        {
+          "id": "global",
+          "name": "Global",
+          "rules": []
+        }
+      ],
+      "file": "own"
+    },
+    "about": {
+      "route": "about",
+      "title": "About",
+      "root": [
+        {
+          "id": "r-code-n",
+          "tag": "astro-code",
+          "attrs": {
+            "builder-data-element": "code",
+            "data-open": "<BaseLayout title=\"About Us\" description={`Learn about ${brand.name} — our story, team, and commitment to quality service.`}>",
+            "data-close": "</BaseLayout>"
+          },
+          "children": [
+            {
+              "id": "r-code-1",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<Header slot=\"header\" />"
+            },
+            {
+              "id": "r-code-2",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<Banner title=\"About Us\" />"
+            },
+            {
+              "id": "r-code-3",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<!-- Story -->"
+            },
+            {
+              "id": "r-section-4",
+              "tag": "section",
+              "classes": [
+                "py-section"
+              ],
+              "children": [
+                {
+                  "id": "r-div-5",
+                  "tag": "div",
+                  "classes": [
+                    "mx-auto",
+                    "grid",
+                    "max-w-site",
+                    "grid-cols-1",
+                    "items-center",
+                    "gap-8",
+                    "px-4",
+                    "sm:px-6",
+                    "lg:grid-cols-2",
+                    "lg:gap-14"
+                  ],
+                  "children": [
+                    {
+                      "id": "r-div-6",
+                      "tag": "div",
+                      "classes": [
+                        "overflow-hidden",
+                        "rounded-lg",
+                        "shadow-lg"
+                      ],
+                      "children": [
+                        {
+                          "id": "r-code-7",
+                          "tag": "astro-code",
+                          "attrs": {
+                            "builder-data-element": "code"
+                          },
+                          "children": [],
+                          "html": "<Image\n          src=\"https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&q=80\"\n          alt=\"Our team planning a project together\"\n          width={800}\n          height={600}\n          loading=\"lazy\"\n          class=\"size-full object-cover\"\n        />"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "r-div-8",
+                      "tag": "div",
+                      "classes": [
+                        "space-y-5"
+                      ],
+                      "children": [
+                        {
+                          "id": "r-span-9",
+                          "tag": "span",
+                          "classes": [
+                            "text-topper",
+                            "font-bold",
+                            "uppercase",
+                            "tracking-widest",
+                            "text-accent"
+                          ],
+                          "text": "Our Story"
+                        },
+                        {
+                          "id": "r-h2-a",
+                          "tag": "h2",
+                          "classes": [
+                            "font-heading",
+                            "text-h2",
+                            "font-bold",
+                            "uppercase",
+                            "text-text"
+                          ],
+                          "text": "Built on trust, driven by quality"
+                        },
+                        {
+                          "id": "r-p-b",
+                          "tag": "p",
+                          "classes": [
+                            "text-text-muted",
+                            "leading-relaxed"
+                          ],
+                          "text": "\n          What started as a one-person operation has grown into a trusted local team. For over 15 years, we've served homeowners and businesses with reliable, high-quality work — and we plan to keep doing just that for decades to come.\n        "
+                        },
+                        {
+                          "id": "r-p-c",
+                          "tag": "p",
+                          "classes": [
+                            "text-text-muted",
+                            "leading-relaxed"
+                          ],
+                          "text": "\n          Every member of our crew is licensed, insured, and background-checked. We treat your property with the same care we'd give our own, and we stand behind every job with a satisfaction guarantee.\n        "
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "r-code-d",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<!-- Team -->"
+            },
+            {
+              "id": "r-section-e",
+              "tag": "section",
+              "classes": [
+                "bg-surface",
+                "py-section"
+              ],
+              "children": [
+                {
+                  "id": "r-div-f",
+                  "tag": "div",
+                  "classes": [
+                    "mx-auto",
+                    "max-w-site",
+                    "px-4",
+                    "sm:px-6"
+                  ],
+                  "children": [
+                    {
+                      "id": "r-div-g",
+                      "tag": "div",
+                      "classes": [
+                        "mx-auto",
+                        "mb-10",
+                        "max-w-2xl",
+                        "text-center"
+                      ],
+                      "children": [
+                        {
+                          "id": "r-span-h",
+                          "tag": "span",
+                          "classes": [
+                            "text-topper",
+                            "font-bold",
+                            "uppercase",
+                            "tracking-widest",
+                            "text-accent"
+                          ],
+                          "text": "Our Team"
+                        },
+                        {
+                          "id": "r-h2-i",
+                          "tag": "h2",
+                          "classes": [
+                            "mt-2",
+                            "font-heading",
+                            "text-h2",
+                            "font-bold",
+                            "uppercase",
+                            "text-text"
+                          ],
+                          "text": "Meet the crew"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "r-div-j",
+                      "tag": "div",
+                      "classes": [
+                        "grid",
+                        "grid-cols-1",
+                        "gap-8",
+                        "sm:grid-cols-2",
+                        "lg:grid-cols-3"
+                      ],
+                      "children": [
+                        {
+                          "id": "r-code-k",
+                          "tag": "astro-code",
+                          "attrs": {
+                            "builder-data-element": "code"
+                          },
+                          "children": [],
+                          "html": "{team.map(({ name, role, image }) => (\n          <div class=\"overflow-hidden rounded-lg bg-background shadow-sm\">\n            <Image\n              src={image}\n              alt={name}\n              width={400}\n              height={400}\n              loading=\"lazy\"\n              class=\"aspect-square w-full object-cover\"\n            />\n            <div class=\"p-5\">\n              <h3 class=\"font-heading text-lg font-semibold text-text\">{name}</h3>\n              <p class=\"text-sm text-text-muted\">{role}</p>\n            </div>\n          </div>\n        ))}"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "r-code-l",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<CTA />"
+            },
+            {
+              "id": "r-code-m",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<Footer slot=\"footer\" />"
+            }
+          ]
+        }
+      ],
+      "stylesheets": [
+        {
+          "id": "global",
+          "name": "Global",
+          "rules": []
+        }
+      ],
+      "frontmatter": "import BaseLayout from '../layouts/BaseLayout.astro';\nimport Header from '../components/Header.astro';\nimport Footer from '../components/Footer.astro';\nimport Banner from '../components/Banner.astro';\nimport CTA from '../components/CTA.astro';\nimport { Image } from 'astro:assets';\nimport { brand } from '../config/brand';\n\nconst team = [\n  { name: 'John Smith',   role: 'Founder & Lead Technician', image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80' },\n  { name: 'Maria Garcia', role: 'Operations Manager',        image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80' },\n  { name: 'David Chen',   role: 'Senior Technician',         image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80' },\n];",
+      "file": "own"
+    },
+    "blog/index": {
+      "route": "blog/index",
+      "title": "Index",
+      "root": [
+        {
+          "id": "r-code-3e",
+          "tag": "astro-code",
+          "attrs": {
+            "builder-data-element": "code",
+            "data-open": "<BaseLayout title=\"Blog\" description={`Tips, guides, and news from ${brand.name}. Stay informed about home maintenance and improvement.`}>",
+            "data-close": "</BaseLayout>"
+          },
+          "children": [
+            {
+              "id": "r-code-37",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<Header slot=\"header\" />"
+            },
+            {
+              "id": "r-code-38",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<Banner title=\"Blog\" />"
+            },
+            {
+              "id": "r-section-39",
+              "tag": "section",
+              "classes": [
+                "py-section"
+              ],
+              "children": [
+                {
+                  "id": "r-code-3b",
+                  "tag": "astro-code",
+                  "attrs": {
+                    "builder-data-element": "code"
+                  },
+                  "children": [],
+                  "html": "<div class=\"mx-auto max-w-site px-4 sm:px-6\">\n      {posts.length === 0 ? (\n        <p class=\"text-center text-text-muted\">No posts yet. Check back soon!</p>\n      ) : (\n        <div class=\"grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3\">\n          {posts.map((post) => {\n            const formattedDate = post.data.date.toLocaleDateString('en-US', {\n              year: 'numeric',\n              month: 'long',\n              day: 'numeric',\n            });\n            return (\n              <article class=\"group flex flex-col overflow-hidden rounded-lg border border-border bg-background shadow-sm transition-shadow hover:shadow-md\">\n                <div class=\"flex flex-1 flex-col p-6\">\n                  <div class=\"flex items-center gap-2 text-sm text-text-muted\">\n                    <time datetime={post.data.date.toISOString()}>{formattedDate}</time>\n                    {post.data.tags.length > 0 && (\n                      <>\n                        <span aria-hidden=\"true\">&bull;</span>\n                        <span>{post.data.tags[0]}</span>\n                      </>\n                    )}\n                  </div>\n                  <h2 class=\"mt-3 font-heading text-h3 font-semibold text-text group-hover:text-primary transition-colors\">\n                    <a href={`/blog/${post.id}`} class=\"after:absolute after:inset-0 relative\">\n                      {post.data.title}\n                    </a>\n                  </h2>\n                  <p class=\"mt-2 flex-1 text-sm leading-relaxed text-text-muted\">\n                    {post.data.description}\n                  </p>\n                  <span class=\"mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary\">\n                    Read more\n                    <svg class=\"size-4 transition-transform group-hover:translate-x-0.5\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" aria-hidden=\"true\">\n                      <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 5l7 7-7 7\" />\n                    </svg>\n                  </span>\n                </div>\n              </article>\n            );\n          })}\n        </div>\n      )}\n    </div>"
+                }
+              ]
+            },
+            {
+              "id": "r-code-3c",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<CTA />"
+            },
+            {
+              "id": "r-code-3d",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<Footer slot=\"footer\" />"
+            }
+          ]
+        }
+      ],
+      "stylesheets": [
+        {
+          "id": "global",
+          "name": "Global",
+          "rules": []
+        }
+      ],
+      "frontmatter": "import BaseLayout from '../../layouts/BaseLayout.astro';\nimport Header from '../../components/Header.astro';\nimport Footer from '../../components/Footer.astro';\nimport Banner from '../../components/Banner.astro';\nimport CTA from '../../components/CTA.astro';\nimport { getCollection } from 'astro:content';\nimport { brand } from '../../config/brand';\n\nconst posts = (await getCollection('blog', ({ data }) => !data.draft))\n  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());",
+      "file": "own"
+    },
+    "contact/index": {
+      "route": "contact/index",
+      "title": "Index",
+      "root": [
+        {
+          "id": "r-code-2v",
+          "tag": "astro-code",
+          "attrs": {
+            "builder-data-element": "code",
+            "data-open": "<BaseLayout title=\"Contact\" description={`Get in touch with ${brand.name}. Request a free quote or ask us a question.`}>",
+            "data-close": "</BaseLayout>"
+          },
+          "children": [
+            {
+              "id": "r-code-1m",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<Header slot=\"header\" />"
+            },
+            {
+              "id": "r-code-1n",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<Banner title=\"Contact Us\" />"
+            },
+            {
+              "id": "r-section-1o",
+              "tag": "section",
+              "classes": [
+                "py-section"
+              ],
+              "children": [
+                {
+                  "id": "r-div-1p",
+                  "tag": "div",
+                  "classes": [
+                    "mx-auto",
+                    "grid",
+                    "max-w-site",
+                    "grid-cols-1",
+                    "gap-10",
+                    "px-4",
+                    "sm:px-6",
+                    "lg:grid-cols-5",
+                    "lg:gap-14"
+                  ],
+                  "children": [
+                    {
+                      "id": "r-code-1q",
+                      "tag": "astro-code",
+                      "attrs": {
+                        "builder-data-element": "code"
+                      },
+                      "children": [],
+                      "html": "<!-- Form -->"
+                    },
+                    {
+                      "id": "r-div-1r",
+                      "tag": "div",
+                      "classes": [
+                        "lg:col-span-3"
+                      ],
+                      "children": [
+                        {
+                          "id": "r-h2-1s",
+                          "tag": "h2",
+                          "classes": [
+                            "font-heading",
+                            "text-h2",
+                            "font-bold",
+                            "uppercase",
+                            "text-text"
+                          ],
+                          "text": "Send us a message"
+                        },
+                        {
+                          "id": "r-p-1t",
+                          "tag": "p",
+                          "classes": [
+                            "mt-2",
+                            "mb-8",
+                            "text-text-muted"
+                          ],
+                          "text": "\n          Fill out the form below and we'll get back to you within one business day.\n        "
+                        },
+                        {
+                          "id": "r-form-1u",
+                          "tag": "form",
+                          "classes": [
+                            "flex",
+                            "flex-col",
+                            "gap-5"
+                          ],
+                          "attrs": {
+                            "name": "contact",
+                            "method": "POST",
+                            "data-netlify": "true",
+                            "netlify-honeypot": "bot-field",
+                            "action": "/contact/success"
+                          },
+                          "children": [
+                            {
+                              "id": "r-input-1v",
+                              "tag": "input",
+                              "attrs": {
+                                "type": "hidden",
+                                "name": "form-name",
+                                "value": "contact"
+                              }
+                            },
+                            {
+                              "id": "r-p-1w",
+                              "tag": "p",
+                              "classes": [
+                                "hidden"
+                              ],
+                              "attrs": {
+                                "aria-hidden": "true"
+                              },
+                              "children": [
+                                {
+                                  "id": "r-label-1x",
+                                  "tag": "label",
+                                  "text": "Leave this empty: ",
+                                  "children": [
+                                    {
+                                      "id": "r-input-1y",
+                                      "tag": "input",
+                                      "attrs": {
+                                        "name": "bot-field",
+                                        "tabindex": "-1",
+                                        "autocomplete": "off"
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "id": "r-label-1z",
+                              "tag": "label",
+                              "classes": [
+                                "flex",
+                                "flex-col",
+                                "gap-1.5"
+                              ],
+                              "children": [
+                                {
+                                  "id": "r-span-20",
+                                  "tag": "span",
+                                  "classes": [
+                                    "text-sm",
+                                    "font-medium",
+                                    "text-text"
+                                  ],
+                                  "text": "Name ",
+                                  "children": [
+                                    {
+                                      "id": "r-span-21",
+                                      "tag": "span",
+                                      "classes": [
+                                        "text-accent"
+                                      ],
+                                      "attrs": {
+                                        "aria-hidden": "true"
+                                      },
+                                      "text": "*"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "id": "r-input-22",
+                                  "tag": "input",
+                                  "classes": [
+                                    "min-h-[44px]",
+                                    "rounded-md",
+                                    "border",
+                                    "border-border",
+                                    "bg-background",
+                                    "px-4",
+                                    "py-2.5",
+                                    "text-text",
+                                    "transition-colors",
+                                    "focus:border-primary",
+                                    "focus:outline-none",
+                                    "focus:ring-2",
+                                    "focus:ring-primary/20"
+                                  ],
+                                  "attrs": {
+                                    "type": "text",
+                                    "name": "name",
+                                    "required": "",
+                                    "autocomplete": "name"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "id": "r-label-23",
+                              "tag": "label",
+                              "classes": [
+                                "flex",
+                                "flex-col",
+                                "gap-1.5"
+                              ],
+                              "children": [
+                                {
+                                  "id": "r-span-24",
+                                  "tag": "span",
+                                  "classes": [
+                                    "text-sm",
+                                    "font-medium",
+                                    "text-text"
+                                  ],
+                                  "text": "Email ",
+                                  "children": [
+                                    {
+                                      "id": "r-span-25",
+                                      "tag": "span",
+                                      "classes": [
+                                        "text-accent"
+                                      ],
+                                      "attrs": {
+                                        "aria-hidden": "true"
+                                      },
+                                      "text": "*"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "id": "r-input-26",
+                                  "tag": "input",
+                                  "classes": [
+                                    "min-h-[44px]",
+                                    "rounded-md",
+                                    "border",
+                                    "border-border",
+                                    "bg-background",
+                                    "px-4",
+                                    "py-2.5",
+                                    "text-text",
+                                    "transition-colors",
+                                    "focus:border-primary",
+                                    "focus:outline-none",
+                                    "focus:ring-2",
+                                    "focus:ring-primary/20"
+                                  ],
+                                  "attrs": {
+                                    "type": "email",
+                                    "name": "email",
+                                    "required": "",
+                                    "autocomplete": "email"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "id": "r-label-27",
+                              "tag": "label",
+                              "classes": [
+                                "flex",
+                                "flex-col",
+                                "gap-1.5"
+                              ],
+                              "children": [
+                                {
+                                  "id": "r-span-28",
+                                  "tag": "span",
+                                  "classes": [
+                                    "text-sm",
+                                    "font-medium",
+                                    "text-text"
+                                  ],
+                                  "text": "Phone"
+                                },
+                                {
+                                  "id": "r-input-29",
+                                  "tag": "input",
+                                  "classes": [
+                                    "min-h-[44px]",
+                                    "rounded-md",
+                                    "border",
+                                    "border-border",
+                                    "bg-background",
+                                    "px-4",
+                                    "py-2.5",
+                                    "text-text",
+                                    "transition-colors",
+                                    "focus:border-primary",
+                                    "focus:outline-none",
+                                    "focus:ring-2",
+                                    "focus:ring-primary/20"
+                                  ],
+                                  "attrs": {
+                                    "type": "tel",
+                                    "name": "phone",
+                                    "autocomplete": "tel",
+                                    "inputmode": "tel"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "id": "r-label-2a",
+                              "tag": "label",
+                              "classes": [
+                                "flex",
+                                "flex-col",
+                                "gap-1.5"
+                              ],
+                              "children": [
+                                {
+                                  "id": "r-span-2b",
+                                  "tag": "span",
+                                  "classes": [
+                                    "text-sm",
+                                    "font-medium",
+                                    "text-text"
+                                  ],
+                                  "text": "Message ",
+                                  "children": [
+                                    {
+                                      "id": "r-span-2c",
+                                      "tag": "span",
+                                      "classes": [
+                                        "text-accent"
+                                      ],
+                                      "attrs": {
+                                        "aria-hidden": "true"
+                                      },
+                                      "text": "*"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "id": "r-textarea-2d",
+                                  "tag": "textarea",
+                                  "classes": [
+                                    "min-h-[120px]",
+                                    "rounded-md",
+                                    "border",
+                                    "border-border",
+                                    "bg-background",
+                                    "px-4",
+                                    "py-2.5",
+                                    "text-text",
+                                    "transition-colors",
+                                    "focus:border-primary",
+                                    "focus:outline-none",
+                                    "focus:ring-2",
+                                    "focus:ring-primary/20",
+                                    "resize-y"
+                                  ],
+                                  "attrs": {
+                                    "name": "message",
+                                    "rows": "5",
+                                    "required": ""
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "id": "r-button-2e",
+                              "tag": "button",
+                              "classes": [
+                                "mt-2",
+                                "inline-flex",
+                                "min-h-[44px]",
+                                "cursor-pointer",
+                                "items-center",
+                                "justify-center",
+                                "self-start",
+                                "rounded-md",
+                                "bg-accent",
+                                "px-8",
+                                "py-3",
+                                "text-base",
+                                "font-bold",
+                                "text-accent-fg",
+                                "shadow-sm",
+                                "transition-opacity",
+                                "hover:opacity-90",
+                                "focus-visible:outline-2",
+                                "focus-visible:outline-offset-2",
+                                "focus-visible:outline-accent"
+                              ],
+                              "attrs": {
+                                "type": "submit"
+                              },
+                              "text": "\n            Send Message\n          "
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "r-code-2f",
+                      "tag": "astro-code",
+                      "attrs": {
+                        "builder-data-element": "code"
+                      },
+                      "children": [],
+                      "html": "<!-- Contact info sidebar -->"
+                    },
+                    {
+                      "id": "r-aside-2g",
+                      "tag": "aside",
+                      "classes": [
+                        "space-y-8",
+                        "lg:col-span-2"
+                      ],
+                      "children": [
+                        {
+                          "id": "r-div-2h",
+                          "tag": "div",
+                          "children": [
+                            {
+                              "id": "r-h3-2i",
+                              "tag": "h3",
+                              "classes": [
+                                "font-heading",
+                                "text-lg",
+                                "font-semibold",
+                                "text-text"
+                              ],
+                              "text": "Call Us"
+                            },
+                            {
+                              "id": "r-a-2j",
+                              "tag": "a",
+                              "classes": [
+                                "mt-1",
+                                "block",
+                                "text-primary-light",
+                                "font-medium",
+                                "transition-colors",
+                                "hover:text-primary"
+                              ],
+                              "attrs": {
+                                "href": "tel:{client.phoneForTel}"
+                              },
+                              "text": "\n            {client.phoneFormatted}\n          "
+                            }
+                          ]
+                        },
+                        {
+                          "id": "r-div-2k",
+                          "tag": "div",
+                          "children": [
+                            {
+                              "id": "r-h3-2l",
+                              "tag": "h3",
+                              "classes": [
+                                "font-heading",
+                                "text-lg",
+                                "font-semibold",
+                                "text-text"
+                              ],
+                              "text": "Email Us"
+                            },
+                            {
+                              "id": "r-a-2m",
+                              "tag": "a",
+                              "classes": [
+                                "mt-1",
+                                "block",
+                                "text-primary-light",
+                                "font-medium",
+                                "transition-colors",
+                                "hover:text-primary"
+                              ],
+                              "attrs": {
+                                "href": "mailto:{client.email}"
+                              },
+                              "text": "\n            {client.email}\n          "
+                            }
+                          ]
+                        },
+                        {
+                          "id": "r-div-2n",
+                          "tag": "div",
+                          "children": [
+                            {
+                              "id": "r-h3-2o",
+                              "tag": "h3",
+                              "classes": [
+                                "font-heading",
+                                "text-lg",
+                                "font-semibold",
+                                "text-text"
+                              ],
+                              "text": "Visit Us"
+                            },
+                            {
+                              "id": "r-a-2p",
+                              "tag": "a",
+                              "classes": [
+                                "mt-1",
+                                "block",
+                                "text-text-muted",
+                                "transition-colors",
+                                "hover:text-text"
+                              ],
+                              "attrs": {
+                                "href": "{client.address.mapLink}",
+                                "target": "_blank",
+                                "rel": "noopener noreferrer"
+                              },
+                              "html": "\n            {client.address.lineOne}<br />\n            {client.address.lineTwo && <>{client.address.lineTwo}<br /></>}\n            {client.address.city}, {client.address.state} {client.address.zip}\n          "
+                            }
+                          ]
+                        },
+                        {
+                          "id": "r-div-2q",
+                          "tag": "div",
+                          "children": [
+                            {
+                              "id": "r-h3-2r",
+                              "tag": "h3",
+                              "classes": [
+                                "font-heading",
+                                "text-lg",
+                                "font-semibold",
+                                "text-text"
+                              ],
+                              "text": "Hours"
+                            },
+                            {
+                              "id": "r-p-2s",
+                              "tag": "p",
+                              "classes": [
+                                "mt-1",
+                                "text-text-muted"
+                              ],
+                              "text": "Mon – Fri: 7:00 AM – 6:00 PM<br>\n            Sat: 8:00 AM – 2:00 PM<br>\n            Sun: Closed<br>",
+                              "children": [
+                                {
+                                  "id": "r-span-2t",
+                                  "tag": "span",
+                                  "classes": [
+                                    "font-medium",
+                                    "text-accent"
+                                  ],
+                                  "text": "24/7 Emergency Service Available"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "r-code-2u",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<Footer slot=\"footer\" />"
+            }
+          ]
+        }
+      ],
+      "stylesheets": [
+        {
+          "id": "global",
+          "name": "Global",
+          "rules": []
+        }
+      ],
+      "frontmatter": "import BaseLayout from '../../layouts/BaseLayout.astro';\nimport Header from '../../components/Header.astro';\nimport Footer from '../../components/Footer.astro';\nimport Banner from '../../components/Banner.astro';\nimport { brand } from '../../config/brand';\nimport { client } from '../../data/client';",
+      "file": "own"
+    },
+    "contact/success": {
+      "route": "contact/success",
+      "title": "Success",
+      "root": [
+        {
+          "id": "r-code-36",
+          "tag": "astro-code",
+          "attrs": {
+            "builder-data-element": "code",
+            "data-open": "<BaseLayout title=\"Message Sent\" description=\"Your message has been received.\">",
+            "data-close": "</BaseLayout>"
+          },
+          "children": [
+            {
+              "id": "r-code-2w",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<Header slot=\"header\" />"
+            },
+            {
+              "id": "r-section-2x",
+              "tag": "section",
+              "classes": [
+                "flex",
+                "min-h-[60vh]",
+                "items-center",
+                "justify-center",
+                "px-4"
+              ],
+              "children": [
+                {
+                  "id": "r-div-2y",
+                  "tag": "div",
+                  "classes": [
+                    "mx-auto",
+                    "max-w-md",
+                    "text-center"
+                  ],
+                  "children": [
+                    {
+                      "id": "r-div-2z",
+                      "tag": "div",
+                      "classes": [
+                        "mx-auto",
+                        "mb-6",
+                        "flex",
+                        "size-16",
+                        "items-center",
+                        "justify-center",
+                        "rounded-full",
+                        "bg-accent/10"
+                      ],
+                      "children": [
+                        {
+                          "id": "r-svg-30",
+                          "tag": "svg",
+                          "classes": [
+                            "size-8",
+                            "text-accent"
+                          ],
+                          "attrs": {
+                            "fill": "none",
+                            "stroke": "currentColor",
+                            "viewBox": "0 0 24 24",
+                            "aria-hidden": "true"
+                          },
+                          "html": "\n          <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 13l4 4L19 7\" />\n        "
+                        }
+                      ]
+                    },
+                    {
+                      "id": "r-h1-32",
+                      "tag": "h1",
+                      "classes": [
+                        "font-heading",
+                        "text-h1",
+                        "font-bold",
+                        "uppercase",
+                        "text-text"
+                      ],
+                      "text": "\n        Message Received\n      "
+                    },
+                    {
+                      "id": "r-p-33",
+                      "tag": "p",
+                      "classes": [
+                        "mt-4",
+                        "text-text-muted",
+                        "leading-relaxed"
+                      ],
+                      "text": "\n        Thank you for reaching out. We'll get back to you within one business day.\n      "
+                    },
+                    {
+                      "id": "r-a-34",
+                      "tag": "a",
+                      "classes": [
+                        "mt-8",
+                        "inline-flex",
+                        "min-h-[44px]",
+                        "items-center",
+                        "justify-center",
+                        "rounded-md",
+                        "bg-primary",
+                        "px-8",
+                        "py-3",
+                        "text-base",
+                        "font-bold",
+                        "text-primary-fg",
+                        "shadow-sm",
+                        "transition-opacity",
+                        "hover:opacity-90"
+                      ],
+                      "attrs": {
+                        "href": "/"
+                      },
+                      "text": "\n        Back to Home\n      "
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "r-code-35",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<Footer slot=\"footer\" />"
+            }
+          ]
+        }
+      ],
+      "stylesheets": [
+        {
+          "id": "global",
+          "name": "Global",
+          "rules": []
+        }
+      ],
+      "frontmatter": "import BaseLayout from '../../layouts/BaseLayout.astro';\nimport Header from '../../components/Header.astro';\nimport Footer from '../../components/Footer.astro';\nimport { brand } from '../../config/brand';",
+      "file": "own"
+    },
+    "index": {
+      "route": "index",
+      "title": "Index",
+      "root": [
+        {
+          "id": "r-code-x",
+          "tag": "astro-code",
+          "attrs": {
+            "builder-data-element": "code",
+            "data-open": "<BaseLayout\n  title={brand.name}\n  description={brand.description}\n  schema={{\n    '@context': 'https://schema.org',\n    '@type': 'LocalBusiness',\n    name: client.name,\n    telephone: client.phoneForTel,\n    email: client.email,\n    address: {\n      '@type': 'PostalAddress',\n      streetAddress: client.address.lineOne,\n      addressLocality: client.address.city,\n      addressRegion: client.address.state,\n      postalCode: client.address.zip,\n      addressCountry: client.address.country,\n    },\n    url: client.domain,\n  }}\n>",
+            "data-close": "</BaseLayout>"
+          },
+          "children": [
+            {
+              "id": "r-code-o",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<Header slot=\"header\" />"
+            },
+            {
+              "id": "r-code-p",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<Hero />"
+            },
+            {
+              "id": "r-code-q",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<TrustBar />"
+            },
+            {
+              "id": "r-code-r",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<Services />"
+            },
+            {
+              "id": "r-code-s",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<About />"
+            },
+            {
+              "id": "r-code-t",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<Reviews />"
+            },
+            {
+              "id": "r-code-u",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<Gallery />"
+            },
+            {
+              "id": "r-code-v",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<CTA />"
+            },
+            {
+              "id": "r-code-w",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<Footer slot=\"footer\" />"
+            }
+          ]
+        }
+      ],
+      "stylesheets": [
+        {
+          "id": "global",
+          "name": "Global",
+          "rules": []
+        }
+      ],
+      "frontmatter": "import BaseLayout from '../layouts/BaseLayout.astro';\nimport Header from '../components/Header.astro';\nimport Footer from '../components/Footer.astro';\nimport Hero from '../components/Hero.astro';\nimport TrustBar from '../components/TrustBar.astro';\nimport Services from '../components/Services.astro';\nimport About from '../components/About.astro';\nimport Reviews from '../components/Reviews.astro';\nimport Gallery from '../components/Gallery.astro';\nimport CTA from '../components/CTA.astro';\nimport { brand } from '../config/brand';\nimport { client } from '../data/client';",
+      "file": "own"
+    },
+    "reviews": {
+      "route": "reviews",
+      "title": "Reviews",
+      "root": [
+        {
+          "id": "r-code-19",
+          "tag": "astro-code",
+          "attrs": {
+            "builder-data-element": "code",
+            "data-open": "<BaseLayout\n  title=\"Reviews\"\n  description={`Read reviews and testimonials from ${brand.name} customers. See why homeowners trust us for their projects.`}\n  schema={{\n    '@context': 'https://schema.org',\n    '@type': 'LocalBusiness',\n    name: client.name,\n    aggregateRating: {\n      '@type': 'AggregateRating',\n      ratingValue: '5',\n      reviewCount: String(reviews.length),\n      bestRating: '5',\n    },\n  }}\n>",
+            "data-close": "</BaseLayout>"
+          },
+          "children": [
+            {
+              "id": "r-code-y",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<Header slot=\"header\" />"
+            },
+            {
+              "id": "r-code-z",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<Banner title=\"Customer Reviews\" />"
+            },
+            {
+              "id": "r-section-10",
+              "tag": "section",
+              "classes": [
+                "py-section"
+              ],
+              "children": [
+                {
+                  "id": "r-div-11",
+                  "tag": "div",
+                  "classes": [
+                    "mx-auto",
+                    "max-w-site",
+                    "px-4",
+                    "sm:px-6"
+                  ],
+                  "children": [
+                    {
+                      "id": "r-div-12",
+                      "tag": "div",
+                      "classes": [
+                        "mx-auto",
+                        "mb-10",
+                        "max-w-2xl",
+                        "text-center",
+                        "lg:mb-14"
+                      ],
+                      "children": [
+                        {
+                          "id": "r-h2-13",
+                          "tag": "h2",
+                          "classes": [
+                            "font-heading",
+                            "text-h2",
+                            "font-bold",
+                            "uppercase",
+                            "text-text"
+                          ],
+                          "text": "What people are saying"
+                        },
+                        {
+                          "id": "r-p-14",
+                          "tag": "p",
+                          "classes": [
+                            "mt-3",
+                            "text-text-muted",
+                            "leading-relaxed"
+                          ],
+                          "text": "\n          Don't take our word for it — hear from the homeowners we've helped.\n        "
+                        }
+                      ]
+                    },
+                    {
+                      "id": "r-div-15",
+                      "tag": "div",
+                      "classes": [
+                        "grid",
+                        "grid-cols-1",
+                        "gap-6",
+                        "md:grid-cols-2",
+                        "lg:grid-cols-3"
+                      ],
+                      "children": [
+                        {
+                          "id": "r-code-16",
+                          "tag": "astro-code",
+                          "attrs": {
+                            "builder-data-element": "code"
+                          },
+                          "children": [],
+                          "html": "{reviews.map(({ quote, name, location, rating = 5 }) => (\n          <div class=\"flex flex-col rounded-lg border border-border bg-background p-6 shadow-sm\">\n            <div class=\"mb-4 flex gap-0.5\" aria-label={`Rated ${rating} out of 5 stars`}>\n              {Array.from({ length: 5 }).map((_, i) => (\n                <svg\n                  class:list={['size-5', i < rating ? 'text-accent' : 'text-border']}\n                  fill=\"currentColor\"\n                  viewBox=\"0 0 20 20\"\n                  aria-hidden=\"true\"\n                >\n                  <path d=\"M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z\" />\n                </svg>\n              ))}\n            </div>\n            <blockquote class=\"flex-1 text-text-muted leading-relaxed\">\n              &ldquo;{quote}&rdquo;\n            </blockquote>\n            <div class=\"mt-4 border-t border-border pt-4\">\n              <p class=\"font-semibold text-text\">{name}</p>\n              <p class=\"text-sm text-text-muted\">{location}</p>\n            </div>\n          </div>\n        ))}"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "r-code-17",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<CTA />"
+            },
+            {
+              "id": "r-code-18",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<Footer slot=\"footer\" />"
+            }
+          ]
+        }
+      ],
+      "stylesheets": [
+        {
+          "id": "global",
+          "name": "Global",
+          "rules": []
+        }
+      ],
+      "frontmatter": "import BaseLayout from '../layouts/BaseLayout.astro';\nimport Header from '../components/Header.astro';\nimport Footer from '../components/Footer.astro';\nimport Banner from '../components/Banner.astro';\nimport CTA from '../components/CTA.astro';\nimport { brand } from '../config/brand';\nimport { client } from '../data/client';\n\nconst reviews = [\n  { quote: 'They showed up on time, explained everything clearly, and finished the job faster than expected. Best service experience we\\'ve had.', name: 'Sarah M.', location: 'Denver, CO', rating: 5 },\n  { quote: 'Honest pricing and top-notch work. I\\'ve used them for three different projects now and they never disappoint.', name: 'James R.', location: 'Aurora, CO', rating: 5 },\n  { quote: 'Our emergency call was answered in minutes. They had the problem fixed before dinner. Truly dependable.', name: 'Linda K.', location: 'Lakewood, CO', rating: 5 },\n  { quote: 'The remodel turned out even better than we imagined. Professional, clean, and on budget. We couldn\\'t be happier.', name: 'Tom & Beth P.', location: 'Boulder, CO', rating: 5 },\n  { quote: 'Great communication from start to finish. They sent photos of the progress and cleaned up perfectly when done.', name: 'Anita W.', location: 'Littleton, CO', rating: 5 },\n  { quote: 'I appreciate the upfront pricing — no hidden fees or surprise charges. That\\'s rare these days. Highly recommend.', name: 'Marcus D.', location: 'Arvada, CO', rating: 5 },\n];",
+      "file": "own"
+    },
+    "services": {
+      "route": "services",
+      "title": "Services",
+      "root": [
+        {
+          "id": "r-code-1l",
+          "tag": "astro-code",
+          "attrs": {
+            "builder-data-element": "code",
+            "data-open": "<BaseLayout title=\"Services\" description={`Explore the full range of services offered by ${brand.name}. From repairs to remodeling, we do it all.`}>",
+            "data-close": "</BaseLayout>"
+          },
+          "children": [
+            {
+              "id": "r-code-1a",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<Header slot=\"header\" />"
+            },
+            {
+              "id": "r-code-1b",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<Banner title=\"Our Services\" />"
+            },
+            {
+              "id": "r-section-1c",
+              "tag": "section",
+              "classes": [
+                "py-section"
+              ],
+              "children": [
+                {
+                  "id": "r-div-1d",
+                  "tag": "div",
+                  "classes": [
+                    "mx-auto",
+                    "max-w-site",
+                    "px-4",
+                    "sm:px-6"
+                  ],
+                  "children": [
+                    {
+                      "id": "r-div-1e",
+                      "tag": "div",
+                      "classes": [
+                        "mx-auto",
+                        "mb-10",
+                        "max-w-2xl",
+                        "text-center",
+                        "lg:mb-14"
+                      ],
+                      "children": [
+                        {
+                          "id": "r-h2-1f",
+                          "tag": "h2",
+                          "classes": [
+                            "font-heading",
+                            "text-h2",
+                            "font-bold",
+                            "uppercase",
+                            "text-text"
+                          ],
+                          "text": "What we can do for you"
+                        },
+                        {
+                          "id": "r-p-1g",
+                          "tag": "p",
+                          "classes": [
+                            "mt-3",
+                            "text-text-muted",
+                            "leading-relaxed"
+                          ],
+                          "text": "\n          No job is too big or too small. Here's a look at the services we offer.\n        "
+                        }
+                      ]
+                    },
+                    {
+                      "id": "r-div-1h",
+                      "tag": "div",
+                      "classes": [
+                        "grid",
+                        "grid-cols-1",
+                        "gap-8",
+                        "md:grid-cols-2"
+                      ],
+                      "children": [
+                        {
+                          "id": "r-code-1i",
+                          "tag": "astro-code",
+                          "attrs": {
+                            "builder-data-element": "code"
+                          },
+                          "children": [],
+                          "html": "{services.map((service, i) => (\n          <div class=\"flex gap-5 rounded-lg border border-border bg-background p-6 shadow-sm\">\n            <div class=\"flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary\">\n              <svg class=\"size-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" set:html={icons[i % icons.length]} />\n            </div>\n            <div>\n              <h3 class=\"font-heading text-h3 font-semibold text-text\">{service.title}</h3>\n              <p class=\"mt-2 text-text-muted leading-relaxed\">{service.description}</p>\n            </div>\n          </div>\n        ))}"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "r-code-1j",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<CTA />"
+            },
+            {
+              "id": "r-code-1k",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<Footer slot=\"footer\" />"
+            }
+          ]
+        }
+      ],
+      "stylesheets": [
+        {
+          "id": "global",
+          "name": "Global",
+          "rules": []
+        }
+      ],
+      "frontmatter": "import BaseLayout from '../layouts/BaseLayout.astro';\nimport Header from '../components/Header.astro';\nimport Footer from '../components/Footer.astro';\nimport Banner from '../components/Banner.astro';\nimport CTA from '../components/CTA.astro';\nimport { brand } from '../config/brand';\n\nconst services = [\n  {\n    title: 'General Repairs',\n    description: 'From leaky faucets to broken drywall, our team handles everyday repairs quickly and professionally. We diagnose the issue, explain your options, and get it fixed — no surprises on the bill.',\n  },\n  {\n    title: 'Installations',\n    description: 'New fixtures, appliances, water heaters, ceiling fans, and more. We ensure every installation is up to code, properly tested, and backed by our workmanship guarantee.',\n  },\n  {\n    title: 'Inspections',\n    description: 'Comprehensive property inspections for homebuyers, sellers, and proactive homeowners. We identify potential issues before they become expensive emergencies.',\n  },\n  {\n    title: 'Remodeling',\n    description: 'Kitchen and bathroom remodels, basement finishing, and whole-home renovations. We manage the project from design through final walkthrough so you can enjoy the transformation.',\n  },\n  {\n    title: 'Emergency Service',\n    description: 'Burst pipes, electrical outages, and other urgent problems don\\'t wait — and neither do we. Our emergency line is staffed 24/7 for rapid response when you need it most.',\n  },\n  {\n    title: 'Maintenance Plans',\n    description: 'Regular preventive maintenance keeps your systems running efficiently and extends their lifespan. Ask about our seasonal service packages for year-round peace of mind.',\n  },\n];\n\nconst icons = [\n  '<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z\" /><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M15 12a3 3 0 11-6 0 3 3 0 016 0z\" />',\n  '<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\" />',\n  '<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z\" />',\n  '<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6\" />',\n  '<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z\" />',\n  '<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z\" />',\n];",
+      "file": "own"
+    }
+  },
+  "emitted": {
+    "src/layouts/BaseLayout.astro": "d521e338c3cf8aa6+",
+    "src/pages/about.astro": "dcdabfe4927f70e6+",
+    "src/pages/blog/index.astro": "8e6599d9937836c4+",
+    "src/pages/contact/index.astro": "9d0183c09ea4943e+",
+    "src/pages/contact/success.astro": "1fde4ea66e1f80f5+",
+    "src/pages/index.astro": "31d1754db25ceed1+",
+    "src/pages/reviews.astro": "be255c6f07e1603a+",
+    "src/pages/services.astro": "934a302464f401cb+"
+  }
+}
