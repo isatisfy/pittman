@@ -21,7 +21,9 @@ export default defineConfig({
   ],
 
   webServer: {
-    command: 'pnpm build && pnpm preview',
+    // npm, not pnpm: npm is this project's package manager and the only
+    // lockfile committed (see .gitignore). pnpm is not installed here.
+    command: 'npm run build && npm run preview',
     url: 'http://localhost:4321',
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,

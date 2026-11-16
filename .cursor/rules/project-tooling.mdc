@@ -6,34 +6,38 @@ alwaysApply: true
 
 # Project Tooling & Setup
 
-## Package manager — always pnpm
+## Package manager — always npm
 
 ```bash
-pnpm add <package>      # runtime dependency
-pnpm add -D <package>   # dev dependency
-pnpm remove <package>   # uninstall
-pnpm run build          # build
+npm install <package>       # runtime dependency
+npm install -D <package>    # dev dependency
+npm uninstall <package>     # uninstall
+npm run build               # build
+npm ci                      # clean install from the lockfile (what Netlify runs)
 ```
 
-❌ Never use `npm install`, `npm add`, or `yarn add` — this project uses pnpm exclusively.  
-✅ Commit `pnpm-lock.yaml`. The `.gitignore` already ignores `package-lock.json` and `yarn.lock`.
+❌ Never use `pnpm` or `yarn` in this project.
+✅ Commit `package-lock.json`. The `.gitignore` ignores `pnpm-lock.yaml` and `yarn.lock`.
 
-### pnpm store — never inside the project root
+### Exactly one committed lockfile
 
-The pnpm content-addressable store must live in the global macOS home directory, **never** inside the project.
+Netlify selects its package manager from whichever lockfile it finds in the
+repo. A second lockfile silently changes how the site builds.
 
-```bash
-# ✅ Correct — pnpm resolves the global store automatically
-pnpm add <package>
+This project previously committed `pnpm-lock.yaml` while gitignoring
+`package-lock.json`. When `package.json` gained an `overrides` entry pinning
+`vite` to `^7.3.2`, the stale pnpm lock did not carry it, so a hosted install
+could resolve `vite` 8 again and fail with:
 
-# ❌ Never — creates a .pnpm-store/ folder inside the project
-pnpm add --store-dir .pnpm-store <package>
+```
+[@tailwindcss/vite:generate:build] Missing field `tsconfigPaths` on
+BindingViteResolvePluginConfig.resolveOptions
 ```
 
-If a `.pnpm-store/` folder appears in the project root:
-1. Delete it: `rm -rf .pnpm-store`
-2. It is already covered by `.gitignore` — it will not be committed
-3. pnpm will use `~/Library/pnpm/store/v10` (macOS default) automatically
+`@tailwindcss/vite` installs its own `vite` 8 at the top level, while
+`astro` declares `vite ^7.3.2` and the plugin targets vite 7's binding API.
+The `overrides` / `pnpm.overrides` pin in `package.json` is what keeps them
+on one version — do not remove it, and do not add a second lockfile.
 
 ---
 
@@ -75,7 +79,7 @@ There is no `.vscode/` directory in this project. Do not create one.
 
 ---
 
-## Baseline `.gitignore` for new projects (Astro + Tailwind v4 + pnpm + Netlify + macOS + Cursor)
+## Baseline `.gitignore` for new projects (Astro + Tailwind v4 + npm + Netlify + macOS + Cursor)
 
 Use this when initialising a fresh project with this stack:
 
@@ -93,8 +97,8 @@ node_modules/
 # ── pnpm store (belongs in ~/Library/pnpm/store, not project root) ────────────
 .pnpm-store/
 
-# ── Lockfiles: keep pnpm-lock.yaml, ignore npm/yarn ──────────────────────────
-package-lock.json
+# ── Lockfiles: keep package-lock.json, ignore pnpm/yarn ──────────────────────
+pnpm-lock.yaml
 yarn.lock
 
 # ── Environment variables ─────────────────────────────────────────────────────
