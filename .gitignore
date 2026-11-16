@@ -11,8 +11,11 @@ node_modules/
 # ── pnpm store (belongs in ~/Library/pnpm/store, not project root) ────────────
 .pnpm-store/
 
-# ── Lockfiles: keep pnpm-lock.yaml, ignore npm/yarn ──────────────────────────
-package-lock.json
+# ── Lockfiles: keep package-lock.json, ignore pnpm/yarn ──────────────────────
+# npm is the package manager for this project. Netlify picks its package
+# manager from whichever lockfile is committed, so exactly one must be tracked:
+# a stale pnpm-lock.yaml alongside package.json's vite override broke the build.
+pnpm-lock.yaml
 yarn.lock
 
 # ── Environment variables ─────────────────────────────────────────────────────

@@ -2036,7 +2036,7 @@
                 "builder-data-element": "code"
               },
               "children": [],
-              "html": "<CTA />"
+              "html": "<CTA buttonText=\"Contact Us Now »\" />"
             },
             {
               "id": "r-code-w",
@@ -2287,7 +2287,7 @@
     "src/pages/blog/index.astro": "5dd6a9110012d302+",
     "src/pages/contact/index.astro": "54379f5dfa550b07+",
     "src/pages/contact/success.astro": "1fde4ea66e1f80f5+",
-    "src/pages/index.astro": "713e7f32c3bb37ba+",
+    "src/pages/index.astro": "8615e783d208ff2c+",
     "src/pages/reviews.astro": "8f1ef4cd024df829+",
     "src/pages/services.astro": "656ba2d5b0eeaeac+",
     "src/styles/generated/framework.css": "86745f12f181d3e9"
