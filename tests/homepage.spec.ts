@@ -4,7 +4,13 @@ test.describe('Homepage', () => {
   test('renders heading and CTA', async ({ page }) => {
     await page.goto('/');
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
-    await expect(page.getByRole('link', { name: /contact us now/i })).toBeVisible();
+    // Two contact CTAs are intentional: one in the hero, one in the closing
+    // CTA band. Asserting the count keeps this strict-mode safe and still
+    // fails if either CTA is dropped.
+    const ctas = page.getByRole('link', { name: /contact us now/i });
+    await expect(ctas).toHaveCount(2);
+    await expect(ctas.first()).toBeVisible();
+    await expect(ctas.last()).toBeVisible();
   });
 
   test('has correct page title', async ({ page }) => {
