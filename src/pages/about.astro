@@ -6,70 +6,55 @@ import Banner from '../components/Banner.astro';
 import CTA from '../components/CTA.astro';
 import { Image } from 'astro:assets';
 import { brand } from '../config/brand';
+import { aboutImage } from '../config/images';
 
-const team = [
-  { name: 'John Smith',   role: 'Founder & Lead Technician', image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80' },
-  { name: 'Maria Garcia', role: 'Operations Manager',        image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80' },
-  { name: 'David Chen',   role: 'Senior Technician',         image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80' },
-];
+/**
+ * The template's "Meet the crew" section listed three invented people
+ * (John Smith / Maria Garcia / David Chen) with stock portraits, and the story
+ * used handyman copy about homeowners. Both removed. Re-add a team section
+ * with real names, roles and photos when they are available.
+ */
 ---
 
-<BaseLayout title="About Us" description={`Learn about ${brand.name} — our story, team, and commitment to quality service.`}>
+<BaseLayout title="About Us" description={`Learn about ${brand.name} — the lines we represent, the territory we cover, and how we support the channel.`}>
   <Header slot="header" />
 
   <Banner title="About Us" />
 
   <!-- Story -->
   <section class="py-section">
-    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
-      <div class="overflow-hidden rounded-lg shadow-lg">
-        <Image
-          src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&q=80"
-          alt="Our team planning a project together"
-          width={800}
-          height={600}
-          loading="lazy"
-          class="size-full object-cover"
-        />
-      </div>
+    <div
+      class:list={[
+        'mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:gap-14',
+        aboutImage && 'lg:grid-cols-2',
+      ]}
+    >
+      {aboutImage && (
+        <div class="overflow-hidden rounded-lg shadow-lg">
+          <Image
+            src={aboutImage}
+            alt={`${brand.name} supporting a customer application`}
+            width={800}
+            height={600}
+            loading="lazy"
+            class="size-full object-cover"
+          />
+        </div>
+      )}
       <div class="space-y-5">
         <span class="text-topper font-bold uppercase tracking-widest text-accent">Our Story</span>
-        <h2 class="font-heading text-h2 font-bold uppercase text-text">Built on trust, driven by quality</h2>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Built on relationships, driven by application expertise</h2>
         <p class="text-text-muted leading-relaxed">
-          What started as a one-person operation has grown into a trusted local team. For over 15 years, we've served homeowners and businesses with reliable, high-quality work — and we plan to keep doing just that for decades to come.
+          {brand.name} is an industrial manufacturers representative covering the
+          mid to southern Atlantic and Gulf Coast. We connect the manufacturers we
+          represent with the distributors and end users who need them — and we stay
+          involved long after the introduction.
         </p>
         <p class="text-text-muted leading-relaxed">
-          Every member of our crew is licensed, insured, and background-checked. We treat your property with the same care we'd give our own, and we stand behind every job with a satisfaction guarantee.
+          Our work is supply chain intelligence, channel support, training and
+          product application: the detail work that lowers a customer's cost per
+          unit rather than simply moving a line item.
         </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Team -->
-  <section class="bg-surface py-section">
-    <div class="mx-auto max-w-site px-4 sm:px-6">
-      <div class="mx-auto mb-10 max-w-2xl text-center">
-        <span class="text-topper font-bold uppercase tracking-widest text-accent">Our Team</span>
-        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Meet the crew</h2>
-      </div>
-
-      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {team.map(({ name, role, image }) => (
-          <div class="overflow-hidden rounded-lg bg-background shadow-sm">
-            <Image
-              src={image}
-              alt={name}
-              width={400}
-              height={400}
-              loading="lazy"
-              class="aspect-square w-full object-cover"
-            />
-            <div class="p-5">
-              <h3 class="font-heading text-lg font-semibold text-text">{name}</h3>
-              <p class="text-sm text-text-muted">{role}</p>
-            </div>
-          </div>
-        ))}
       </div>
     </div>
   </section>

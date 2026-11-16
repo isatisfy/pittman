@@ -22,12 +22,17 @@ interface Props {
 const {
   title = brand.name,
   description = brand.description,
-  image = '/og-image.png',
+  image,
   schema,
 } = Astro.props;
 
 const pageTitle = title === brand.name ? title : `${title} — ${brand.name}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? brand.url);
+
+// Social preview image is opt-in: emitting a default that does not exist in
+// public/ makes every share card request a 404. Drop a file into public/ and
+// pass `image="/og-image.png"` (or set a default here) to switch cards on.
+const socialImage = image ? new URL(image, Astro.site ?? brand.url) : undefined;
 ---
 
 <html lang={brand.locale.split('_')[0]} class="scroll-smooth">
@@ -45,14 +50,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? brand.url);
     <meta property="og:url"         content={canonicalURL} />
     <meta property="og:title"       content={pageTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:image"       content={image} />
+    {socialImage && <meta property="og:image" content={socialImage} />}
     <meta property="og:locale"      content={brand.locale} />
 
     <!-- Twitter Card -->
-    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:card"        content={socialImage ? 'summary_large_image' : 'summary'} />
     <meta name="twitter:title"       content={pageTitle} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image"       content={image} />
+    {socialImage && <meta name="twitter:image" content={socialImage} />}
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -66,16 +71,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? brand.url);
     {schema && (
       <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     )}
-
-    <!-- FOUC prevention for dark mode -->
-    <script is:inline>
-      (function(){
-        var t = localStorage.getItem('theme');
-        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-          document.documentElement.classList.add('dark-mode');
-        }
-      })();
-    </script>
 
     <slot name="head" />
     <ClientRouter />

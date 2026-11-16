@@ -21,17 +21,19 @@ const icons = [
   '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />',
 ];
 
+// Service lines below are drawn from the company's own stated positioning:
+// "supply chain intelligence, channel support, training, and product
+// application that lowers user CPU's" (src/config/brand.ts). Confirm the
+// wording with the client before go-live.
 const {
   topper = 'What We Do',
   heading = 'Our Services',
-  description = 'From routine maintenance to complex projects, we deliver quality workmanship with honest pricing.',
+  description = 'Four ways we support the manufacturers we represent and the distributors and end users who rely on them.',
   services = [
-    { title: 'General Repairs',      description: 'Reliable fixes for plumbing, electrical, drywall, and more — done right the first time.', href: '/services' },
-    { title: 'Installations',        description: 'Professional installation of fixtures, appliances, and systems with clean, code-compliant results.', href: '/services' },
-    { title: 'Inspections',          description: 'Thorough property inspections to catch issues before they become costly problems.', href: '/services' },
-    { title: 'Remodeling',           description: 'Transform kitchens, bathrooms, and living spaces with expert craftsmanship and attention to detail.', href: '/services' },
-    { title: 'Emergency Service',    description: '24/7 emergency response when you need help fast — we\'re just a phone call away.', href: '/services' },
-    { title: 'Maintenance Plans',    description: 'Scheduled preventive maintenance to protect your property and avoid surprise repair bills.', href: '/services' },
+    { title: 'Supply Chain Intelligence', description: 'Market, lead-time and sourcing insight for the lines we represent, so buyers can plan around real availability.', href: '/services' },
+    { title: 'Channel Support',           description: 'Day-to-day support for distributors and their sales teams — from first inquiry through delivered order.', href: '/services' },
+    { title: 'Training',                  description: 'Product and application training for distributor personnel and end-user maintenance teams, on site or remote.', href: '/services' },
+    { title: 'Product Application',       description: 'Hands-on application support to match the right product to the job and lower your cost per unit.', href: '/services' },
   ],
 } = Astro.props;
 ---
@@ -44,7 +46,7 @@ const {
       <p class="mt-3 text-text-muted leading-relaxed">{description}</p>
     </div>
 
-    <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" role="list">
+    <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4" role="list">
       {services.map((service, i) => (
         <li>
           <a

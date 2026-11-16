@@ -22,6 +22,7 @@ const {
 } = Astro.props;
 ---
 
+{images.length > 0 && (
 <section class="py-section">
   <div class="mx-auto max-w-site px-4 sm:px-6">
     <div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
@@ -119,6 +120,7 @@ const {
     }
   </div>
 </section>
+)}
 
 <script>
   function initGallery() {

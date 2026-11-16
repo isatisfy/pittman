@@ -41,10 +41,16 @@
   "devDependencies": {
     "@playwright/test": "^1.58.2"
   },
+  "overrides": {
+    "vite": "^7.3.2"
+  },
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild",
       "sharp"
-    ]
+    ],
+    "overrides": {
+      "vite": "^7.3.2"
+    }
   }
 }

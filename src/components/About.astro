@@ -3,10 +3,9 @@ import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import { aboutImage as localAboutImage } from '../config/images';
 
-// Fallback Unsplash URL used until a local image is added to
-// src/assets/images/about/ and registered in src/config/images.ts
-const PLACEHOLDER = 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=900&q=80';
-
+// No stock fallback: when no local about image is registered in
+// src/config/images.ts the image column is omitted and the copy goes
+// full width, rather than shipping an unrelated Unsplash photo.
 interface Props {
   topper?: string;
   heading?: string;
@@ -20,38 +19,45 @@ interface Props {
 
 const {
   topper = 'Who We Are',
-  heading = 'Trusted by homeowners for over 15 years',
+  heading = 'A representative, not just a line card',
   body = [
-    'We\'re a locally owned and operated business dedicated to delivering honest, dependable service to our community. Our team of licensed professionals takes pride in every job — big or small.',
-    'From day one, we\'ve built our reputation on doing the work right, showing up on time, and treating every home like our own.',
+    'We represent industrial manufacturers across the mid to southern Atlantic and Gulf Coast, connecting them with the distributors and end users who put their products to work.',
+    'The value is in what happens after the introduction: knowing where supply actually stands, training the people who specify the product, and getting the application right the first time.',
   ],
   benefits = [
-    'Background-checked, licensed professionals',
-    'Upfront pricing with no hidden fees',
-    'Satisfaction guaranteed on every project',
+    'Supply chain intelligence on the lines we represent',
+    'Training for distributor and end-user teams',
+    'Application support that lowers cost per unit',
   ],
   ctaLabel = 'More About Us',
   ctaHref = '/about',
-  imageSrc = localAboutImage ?? PLACEHOLDER,
-  imageAlt = 'Friendly professional team on a job site',
+  imageSrc = localAboutImage,
+  imageAlt = 'Industrial components on a production floor',
 } = Astro.props;
 ---
 
 <section class="py-section">
-  <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+  <div
+    class:list={[
+      'mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:gap-14',
+      imageSrc && 'lg:grid-cols-2',
+    ]}
+  >
 
     <!-- Image -->
-    <div class="overflow-hidden rounded-lg shadow-lg">
-      <Image
-        src={imageSrc}
-        alt={imageAlt}
-        width={700}
-        height={525}
-        loading="lazy"
-        decoding="async"
-        class="size-full object-cover"
-      />
-    </div>
+    {imageSrc && (
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <Image
+          src={imageSrc}
+          alt={imageAlt}
+          width={700}
+          height={525}
+          loading="lazy"
+          decoding="async"
+          class="size-full object-cover"
+        />
+      </div>
+    )}
 
     <!-- Content -->
     <div class="space-y-5">

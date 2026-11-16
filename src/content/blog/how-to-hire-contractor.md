@@ -4,6 +4,7 @@ description: "A practical guide to vetting contractors, checking credentials, an
 author: "Team"
 date: 2026-03-01
 tags: ["guides", "hiring"]
+draft: true
 ---
 
 Hiring a contractor can feel overwhelming, but a few simple steps will help you find someone trustworthy and skilled. Here's what to look for.

@@ -16,8 +16,10 @@ export const client = {
   phoneForTel: '205-916-2828',
   phoneFormatted: '(205) 916-2828',
   /** Business / contractor license number. Displayed in the header and footer
-   *  as a trust signal. Set to an empty string to hide it. */
-  license: 'Lic# 123456',
+   *  as a trust signal. Set to an empty string to hide it.
+   *  Was the template placeholder 'Lic# 123456'; blanked rather than publish a
+   *  fake credential. Fill in the real number if there is one to show. */
+  license: '',
   address: {
     lineOne: '335 Industrial Lane',
     lineTwo: '',

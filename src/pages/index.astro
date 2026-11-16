@@ -18,8 +18,9 @@ import { client } from '../data/client';
   description={brand.description}
   schema={{
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
+    '@type': 'ProfessionalService',
     name: client.name,
+    description: brand.description,
     telephone: client.phoneForTel,
     email: client.email,
     address: {
@@ -31,11 +32,13 @@ import { client } from '../data/client';
       addressCountry: client.address.country,
     },
     url: client.domain,
+    areaServed: 'Mid to southern Atlantic and Gulf Coast',
+    sameAs: Object.values(client.socials).filter(Boolean),
   }}
 >
   <Header slot="header" />
 
-  <Hero topper="mid to southern Atlantic and Gulf Coast" />
+  <Hero topper="mid to southern Atlantic and Gulf Coast" ctaLabel="Contact Us Now »" />
   <TrustBar />
   <Services />
   <About />

@@ -7,7 +7,7 @@ import { brand } from '../../config/brand';
 import { client } from '../../data/client';
 ---
 
-<BaseLayout title="Contact" description={`Get in touch with ${brand.name}. Request a free quote or ask us a question.`}>
+<BaseLayout title="Contact" description={`Get in touch with ${brand.name}. Request a quote or ask us about an application.`}>
   <Header slot="header" />
 
   <Banner title="Contact Us" />
@@ -117,15 +117,12 @@ import { client } from '../../data/client';
           </a>
         </div>
 
-        <div>
-          <h3 class="font-heading text-lg font-semibold text-text">Hours</h3>
-          <p class="mt-1 text-text-muted">
-            Mon – Fri: 7:00 AM – 6:00 PM<br />
-            Sat: 8:00 AM – 2:00 PM<br />
-            Sun: Closed<br />
-            <span class="font-medium text-accent">24/7 Emergency Service Available</span>
-          </p>
-        </div>
+        {/*
+          The template's Hours block advertised 7am–6pm weekdays, Saturday
+          hours and "24/7 Emergency Service Available" — invented, and wrong
+          for a representative firm. Removed rather than publish made-up hours.
+          Add it back once the real hours are confirmed.
+        */}
       </aside>
     </div>
   </section>

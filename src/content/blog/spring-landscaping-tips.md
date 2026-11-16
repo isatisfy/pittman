@@ -4,6 +4,7 @@ description: "Get your yard ready for the season with these practical spring lan
 author: "Team"
 date: 2026-02-01
 tags: ["tips", "landscaping"]
+draft: true
 ---
 
 Spring is the perfect time to refresh your yard. Whether you're preparing to sell or simply want to enjoy your outdoor space, these tips will help you make the most of the season.
