@@ -1,6 +1,6 @@
 {
   "format": "sitereal",
-  "version": 2,
+  "version": 7,
   "site": {
     "hosting": {
       "actions": {
@@ -366,7 +366,305 @@
   ],
   "fonts": [],
   "icons": [],
-  "components": [],
+  "components": [
+    {
+      "id": "cmp-mwi3codp-1",
+      "name": "Hero",
+      "file": "own",
+      "path": "src/components/Hero.astro",
+      "root": [
+        {
+          "id": "r-section-kc",
+          "tag": "section",
+          "classes": [
+            "relative",
+            "overflow-hidden",
+            "bg-background",
+            "py-12",
+            "sm:py-16",
+            "md:py-20",
+            "lg:py-24"
+          ],
+          "children": [
+            {
+              "id": "r-div-kd",
+              "tag": "div",
+              "classes": [
+                "mx-auto",
+                "grid",
+                "max-w-site",
+                "grid-cols-1",
+                "items-center",
+                "gap-8",
+                "px-4",
+                "sm:px-6",
+                "lg:grid-cols-2",
+                "lg:gap-12"
+              ],
+              "children": [
+                {
+                  "id": "r-code-ke",
+                  "tag": "astro-code",
+                  "attrs": {
+                    "builder-data-element": "code"
+                  },
+                  "children": [],
+                  "html": "<!-- Copy -->"
+                },
+                {
+                  "id": "r-div-kf",
+                  "tag": "div",
+                  "classes": [
+                    "order-2",
+                    "space-y-5",
+                    "lg:order-1",
+                    "lg:space-y-6"
+                  ],
+                  "children": [
+                    {
+                      "id": "r-code-kg",
+                      "tag": "astro-code",
+                      "attrs": {
+                        "builder-data-element": "code"
+                      },
+                      "children": [],
+                      "html": "{topper && (\n        <span class=\"inline-block rounded-full bg-accent/10 px-4 py-1.5 text-topper font-bold uppercase tracking-widest text-accent\">\n          {topper}\n        </span>\n      )}"
+                    },
+                    {
+                      "id": "r-h1-kh",
+                      "tag": "h1",
+                      "classes": [
+                        "font-heading",
+                        "text-display",
+                        "font-bold",
+                        "uppercase",
+                        "leading-none",
+                        "tracking-tight",
+                        "text-text"
+                      ],
+                      "attrs": {
+                        "transition:name": "hero-heading"
+                      },
+                      "text": "\n        {heading}\n      "
+                    },
+                    {
+                      "id": "r-p-ki",
+                      "tag": "p",
+                      "classes": [
+                        "max-w-lg",
+                        "text-lead",
+                        "text-text-muted",
+                        "leading-relaxed"
+                      ],
+                      "text": "\n        {description}\n      "
+                    },
+                    {
+                      "id": "r-code-kj",
+                      "tag": "astro-code",
+                      "attrs": {
+                        "builder-data-element": "code"
+                      },
+                      "children": [],
+                      "html": "<!-- CTA row -->"
+                    },
+                    {
+                      "id": "r-div-kk",
+                      "tag": "div",
+                      "classes": [
+                        "flex",
+                        "flex-col",
+                        "gap-3",
+                        "pt-2",
+                        "sm:flex-row",
+                        "sm:items-center",
+                        "sm:gap-4"
+                      ],
+                      "children": [
+                        {
+                          "id": "r-a-kl",
+                          "tag": "a",
+                          "classes": [
+                            "inline-flex",
+                            "min-h-[44px]",
+                            "items-center",
+                            "justify-center",
+                            "rounded-md",
+                            "bg-accent",
+                            "px-6",
+                            "py-3",
+                            "text-base",
+                            "font-bold",
+                            "text-accent-fg",
+                            "shadow-sm",
+                            "transition-opacity",
+                            "hover:opacity-90",
+                            "focus-visible:outline-2",
+                            "focus-visible:outline-offset-2",
+                            "focus-visible:outline-accent"
+                          ],
+                          "attrs": {
+                            "href": "{ctaHref}"
+                          },
+                          "text": "\n          {ctaLabel}\n        "
+                        },
+                        {
+                          "id": "r-a-km",
+                          "tag": "a",
+                          "classes": [
+                            "inline-flex",
+                            "min-h-[44px]",
+                            "items-center",
+                            "justify-center",
+                            "rounded-md",
+                            "border-2",
+                            "border-primary",
+                            "px-6",
+                            "py-3",
+                            "text-base",
+                            "font-bold",
+                            "text-primary",
+                            "transition-colors",
+                            "hover:bg-primary",
+                            "hover:text-primary-fg",
+                            "focus-visible:outline-2",
+                            "focus-visible:outline-offset-2",
+                            "focus-visible:outline-primary"
+                          ],
+                          "attrs": {
+                            "href": "{secondaryHref}"
+                          },
+                          "text": "\n          {secondaryLabel}\n        "
+                        }
+                      ]
+                    },
+                    {
+                      "id": "r-code-kn",
+                      "tag": "astro-code",
+                      "attrs": {
+                        "builder-data-element": "code"
+                      },
+                      "children": [],
+                      "html": "<!-- Tap-to-call -->"
+                    },
+                    {
+                      "id": "r-a-ko",
+                      "tag": "a",
+                      "classes": [
+                        "inline-flex",
+                        "items-center",
+                        "gap-2",
+                        "pt-1",
+                        "text-sm",
+                        "font-semibold",
+                        "text-text-muted",
+                        "transition-colors",
+                        "hover:text-primary"
+                      ],
+                      "attrs": {
+                        "href": "tel:{client.phoneForTel}"
+                      },
+                      "html": "\n        <svg class=\"size-4\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" aria-hidden=\"true\">\n          <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z\" />\n        </svg>\n        Call {client.phoneFormatted}\n      "
+                    }
+                  ]
+                },
+                {
+                  "id": "r-code-kp",
+                  "tag": "astro-code",
+                  "attrs": {
+                    "builder-data-element": "code"
+                  },
+                  "children": [],
+                  "html": "<!-- Hero image -->"
+                },
+                {
+                  "id": "r-div-kq",
+                  "tag": "div",
+                  "classes": [
+                    "relative",
+                    "order-1",
+                    "overflow-hidden",
+                    "rounded-lg",
+                    "shadow-xl",
+                    "aspect-4/3",
+                    "lg:order-2"
+                  ],
+                  "attrs": {
+                    "transition:name": "hero-image"
+                  },
+                  "children": [
+                    {
+                      "id": "r-code-kr",
+                      "tag": "astro-code",
+                      "attrs": {
+                        "builder-data-element": "code"
+                      },
+                      "children": [],
+                      "html": "<Image\n        src={imageSrc}\n        alt={imageAlt}\n        width={800}\n        height={600}\n        loading=\"eager\"\n        decoding=\"async\"\n        class=\"size-full object-cover\"\n      />"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "frontmatter": "import { Image } from 'astro:assets';\nimport type { ImageMetadata } from 'astro';\nimport { brand } from '../config/brand';\nimport { client } from '../data/client';\nimport { heroImage as localHeroImage } from '../config/images';\n\n// Fallback Unsplash URL used until a local image is added to\n// src/assets/images/hero/ and registered in src/config/images.ts\nconst PLACEHOLDER = 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80';\n\ninterface Props {\n  topper?: string;\n  heading?: string;\n  description?: string;\n  ctaLabel?: string;\n  ctaHref?: string;\n  secondaryLabel?: string;\n  secondaryHref?: string;\n  imageSrc?: ImageMetadata | string;\n  imageAlt?: string;\n}\n\nconst {\n  topper = 'Licensed & Insured',\n  heading = brand.tagline,\n  description = brand.description,\n  ctaLabel = 'Get a Free Quote',\n  ctaHref = '/contact',\n  secondaryLabel = 'Our Services',\n  secondaryHref = '/services',\n  imageSrc = localHeroImage ?? PLACEHOLDER,\n  imageAlt = 'Professional tradesperson at work',\n} = Astro.props;",
+      "props": [
+        {
+          "name": "topper",
+          "type": "text",
+          "value": "Licensed & Insured"
+        },
+        {
+          "name": "heading",
+          "type": "text",
+          "value": "brand.tagline"
+        },
+        {
+          "name": "description",
+          "type": "text",
+          "value": "brand.description"
+        },
+        {
+          "name": "ctaLabel",
+          "type": "text",
+          "value": "Get a Free Quote"
+        },
+        {
+          "name": "ctaHref",
+          "type": "text",
+          "value": "/contact"
+        },
+        {
+          "name": "secondaryLabel",
+          "type": "text",
+          "value": "Our Services"
+        },
+        {
+          "name": "secondaryHref",
+          "type": "text",
+          "value": "/services"
+        },
+        {
+          "name": "imageSrc",
+          "type": "object",
+          "value": "localHeroImage ?? PLACEHOLDER"
+        },
+        {
+          "name": "imageAlt",
+          "type": "text",
+          "value": "Professional tradesperson at work"
+        }
+      ],
+      "stylesheets": [
+        {
+          "id": "cmpcss-sheet-mwi3cof5-3",
+          "name": "Hero",
+          "rules": []
+        }
+      ]
+    }
+  ],
   "templates": [],
   "popups": [],
   "forms": {
@@ -1820,7 +2118,7 @@
                 "builder-data-element": "code"
               },
               "children": [],
-              "html": "<Hero />"
+              "html": "<Hero topper=\"mid to southern Atlantic and Gulf Coast\" />"
             },
             {
               "id": "r-code-q",
@@ -2179,13 +2477,15 @@
     }
   },
   "emitted": {
+    "src/components/Hero.astro": "b2ce17c86f0df3db+",
     "src/layouts/BaseLayout.astro": "d521e338c3cf8aa6+",
     "src/pages/about.astro": "dcdabfe4927f70e6+",
     "src/pages/blog/index.astro": "8e6599d9937836c4+",
     "src/pages/contact/index.astro": "9d0183c09ea4943e+",
     "src/pages/contact/success.astro": "1fde4ea66e1f80f5+",
-    "src/pages/index.astro": "31d1754db25ceed1+",
+    "src/pages/index.astro": "e4c1b29a42cff956+",
     "src/pages/reviews.astro": "be255c6f07e1603a+",
-    "src/pages/services.astro": "934a302464f401cb+"
+    "src/pages/services.astro": "934a302464f401cb+",
+    "src/styles/generated/framework.css": "86745f12f181d3e9"
   }
 }

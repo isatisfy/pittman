@@ -11,28 +11,31 @@
  */
 
 export const client = {
-  name: 'Small Business Starter',
-  email: 'hello@example.com',
-  phoneForTel: '555-867-5309',
-  phoneFormatted: '(555) 867-5309',
+  name: 'Pittman Industrial Marketing, Inc.',
+  email: 'info@pittmanindustrial.com',
+  phoneForTel: '205-916-2828',
+  phoneFormatted: '(205) 916-2828',
   /** Business / contractor license number. Displayed in the header and footer
    *  as a trust signal. Set to an empty string to hide it. */
   license: 'Lic# 123456',
   address: {
-    lineOne: '123 Main Street',
-    lineTwo: 'Suite 100',
-    city: 'Denver',
-    state: 'CO',
-    zip: '80206',
+    lineOne: '335 Industrial Lane',
+    lineTwo: '',
+    city: 'Birmingham',
+    state: 'AL',
+    zip: '35211',
     country: 'US',
-    mapLink: 'https://maps.app.goo.gl/example',
+    mapLink: 'https://maps.app.goo.gl/BTJ7nBajXekm9kCGA',
   },
   socials: {
-    facebook: 'https://www.facebook.com/',
-    instagram: 'https://www.instagram.com/',
-    google: 'https://www.google.com/maps',
+    facebook: 'https://www.facebook.com/PittmanIndustrial',
+    instagram: 'https://www.instagram.com/pittman_industrial/',
+    linkedin: 'https://www.linkedin.com/company/pittman-industrial-marketing-inc-/',
+    youtube: 'https://youtube.com/@pittmanindustrialmarketing8330',
+    twitter: 'https://x.com/Pittmansocial',
+    google: 'https://share.google/Z7DUj1PC1npHnwkr7',
   },
-  domain: 'https://www.example.com',
+  domain: 'https://www.pittmanindustrial.com',
 } as const;
 
 export type Client = typeof client;

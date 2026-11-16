@@ -37,7 +37,7 @@ import type { ImageMetadata } from 'astro';
 //   2. Uncomment and update the line below
 //   3. Replace the heroImage export at the bottom of this section
 //
-// import heroImage from '../assets/images/hero/hero.jpg';
+import heroImage from '../src/assets/images/hero/5-axis-machining.jpg';
 export const heroImage: ImageMetadata | undefined = undefined;
 
 // ── About ─────────────────────────────────────────────────────────────────────
