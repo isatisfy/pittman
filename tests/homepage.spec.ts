@@ -4,13 +4,19 @@ test.describe('Homepage', () => {
   test('renders heading and CTA', async ({ page }) => {
     await page.goto('/');
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
-    // Two contact CTAs are intentional: one in the hero, one in the closing
-    // CTA band. Asserting the count keeps this strict-mode safe and still
-    // fails if either CTA is dropped.
-    const ctas = page.getByRole('link', { name: /contact us now/i });
-    await expect(ctas).toHaveCount(2);
-    await expect(ctas.first()).toBeVisible();
-    await expect(ctas.last()).toBeVisible();
+    // Contact CTAs are scoped by landmark rather than counted page-wide: the
+    // header has one (its mobile-drawer twin is display:none at desktop width,
+    // so it is outside the accessibility tree), and <main> has two - the hero
+    // and the closing CTA band. Scoping keeps this strict-mode safe and still
+    // fails if any one of them is dropped.
+    const headerCta = page.locator('header').getByRole('link', { name: /contact us now/i });
+    await expect(headerCta).toHaveCount(1);
+    await expect(headerCta).toBeVisible();
+
+    const bodyCtas = page.locator('main').getByRole('link', { name: /contact us now/i });
+    await expect(bodyCtas).toHaveCount(2);
+    await expect(bodyCtas.first()).toBeVisible();
+    await expect(bodyCtas.last()).toBeVisible();
   });
 
   test('has correct page title', async ({ page }) => {
