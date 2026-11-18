@@ -33,12 +33,16 @@ export const brand = {
   // These values are written to CSS custom properties in theme.css.
   // Tailwind v4 @theme picks them up automatically.
   colors: {
-    primary:      '#1B3A6B',
+    primary:      '#334a96',
     primaryLight: '#2563EB',
     primaryFg:    '#ffffff',
 
-    accent:       '#F97316',
-    accentFg:     '#ffffff',
+    accent:       '#E0A81E',
+    accentFg:     '#0F172A',
+    // Gold is a fill, not an ink: #E0A81E on white is only 2.15:1. Text,
+    // icons and focus rings use this deeper brass instead (5.21:1 on white,
+    // 4.83:1 on the bg-accent/10 wash).
+    accentInk:    '#85691A',
 
     background:   '#ffffff',
     surface:      '#F8FAFC',

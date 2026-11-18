@@ -12,11 +12,12 @@
 
 @theme {
   /* ── Brand Colors ───────────────────────────────────────────────── */
-  --color-primary:       #1B3A6B;
+  --color-primary:       #334a96;
   --color-primary-light: #2563EB;
   --color-primary-fg:    #ffffff;
-  --color-accent:        #F97316;
-  --color-accent-fg:     #ffffff;
+  --color-accent:        #E0A81E;
+  --color-accent-fg:     #0F172A;
+  --color-accent-ink:    #85691A;
 
   /* ── Neutral Scale ──────────────────────────────────────────────── */
   --color-background:    #ffffff;
