@@ -1,0 +1,167 @@
+---
+/**
+ * Audiences
+ *
+ * Replaces the template TrustBar ("Licensed", "Fully Insured", "2,500+ Jobs
+ * Completed"), whose claims were trade-template filler rather than anything
+ * true of a manufacturers' representative.
+ *
+ * Content is drawn from the client's existing site, where these three groups
+ * are three images you must click through to understand:
+ *   End users    -> /markets/        "Market Segmentation"
+ *   Channels     -> /partners/       "Distribution Channels"
+ *   Manufacturers-> /manufacturers-brief/
+ * The selling points from those pages are surfaced here instead, so the
+ * homepage answers "who is this for" without a drill-down.
+ *
+ * Order is deliberate: end users lead because they are the primary market
+ * (~85% of marketing effort). The old site led with manufacturers.
+ */
+
+interface Audience {
+  title: string;
+  badge?: string;
+  lead: string;
+  listLabel: string;
+  items: string[];
+  icon: 'users' | 'channel' | 'factory';
+}
+
+interface Props {
+  topper?: string;
+  heading?: string;
+  description?: string;
+  audiences?: Audience[];
+  associations?: string[];
+}
+
+const {
+  topper = 'Who we work with',
+  heading = 'Three links in one supply chain',
+  description =
+    'Fifty years of relationships across the mid to southern Atlantic and Gulf Coast — connecting the brands we represent, the channels that carry them, and the people who put the tools to work.',
+
+  audiences = [
+    {
+      title: 'End users',
+      badge: 'Primary focus',
+      lead: 'Most of our effort goes here. Territory managers coordinate directly with you, your distributor and the manufacturer, so the specification fits the application — and lowers your cost per unit.',
+      listLabel: 'Segments we serve',
+      items: [
+        'Automotive',
+        'Aerospace & defense',
+        'Medical manufacturing',
+        'Metal working',
+        'Heavy industries',
+        'Fabrication & shipbuilding',
+        'Firearms',
+        'Steel mills & processors',
+      ],
+      icon: 'users',
+    },
+    {
+      title: 'Channels & distributors',
+      lead: 'Our channel strategy is driven by manufacturer initiatives and user needs — cooperative, flexible and adaptable across every channel model in a complex marketplace.',
+      listLabel: 'Channel models',
+      items: [
+        'Traditional',
+        'Integrated supply',
+        'Machine tool dealers',
+        'Metrology',
+        'Construction & welding',
+        'Strategic',
+      ],
+      icon: 'channel',
+    },
+    {
+      title: 'Manufacturers',
+      lead: 'We market, sell and service premier brands, and feed intelligence back up the chain — contract awards, changes among integrated suppliers, and the trends behind them.',
+      listLabel: 'What we bring',
+      items: [
+        'Supply chain intelligence',
+        'Channel efficiency programs',
+        'Territory coverage',
+        'Application & training support',
+      ],
+      icon: 'factory',
+    },
+  ],
+
+  // Buying groups and associations listed on the client's own site. Verify
+  // before launch: these were read from the logo images, not from text.
+  associations = ['AD', 'DPA', 'IBC', 'INCOM', 'Indica', 'ISA', 'IWDC', 'Netplus', 'SME', 'STAFDA'],
+} = Astro.props;
+
+const icons: Record<Audience['icon'], string> = {
+  users:
+    'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z',
+  channel:
+    'M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4',
+  factory:
+    'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
+};
+---
+
+<section class="bg-background py-section" aria-labelledby="audiences-heading">
+  <div class="mx-auto max-w-site px-4 sm:px-6">
+
+    <div class="mx-auto max-w-3xl text-center">
+      <span class="text-topper font-bold uppercase tracking-widest text-accent-ink">{topper}</span>
+      <h2 id="audiences-heading" class="mt-3 font-heading text-h2 font-bold uppercase text-text">
+        {heading}
+      </h2>
+      <p class="mt-4 leading-relaxed text-text-muted">{description}</p>
+    </div>
+
+    <ul class="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-3" role="list">
+      {audiences.map(({ title, badge, lead, listLabel, items, icon }) => (
+        <li
+          class:list={[
+            'flex flex-col rounded-lg border bg-surface p-6 sm:p-7',
+            badge ? 'border-primary/30 ring-1 ring-primary/15' : 'border-border',
+          ]}
+        >
+          <div class="flex items-center gap-3">
+            <span class="inline-flex size-11 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+              <svg class="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={icons[icon]} />
+              </svg>
+            </span>
+            <h3 class="font-heading text-h3 font-bold uppercase leading-tight text-text">{title}</h3>
+          </div>
+
+          {badge && (
+            <span class="mt-4 self-start rounded-full bg-accent/15 px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent-ink">
+              {badge}
+            </span>
+          )}
+
+          <p class="mt-4 leading-relaxed text-text-muted">{lead}</p>
+
+          <p class="mt-6 text-xs font-bold uppercase tracking-widest text-text-muted">{listLabel}</p>
+          <ul class="mt-3 flex flex-wrap gap-2" role="list">
+            {items.map((item) => (
+              <li class="rounded-full border border-border bg-background px-3 py-1 text-sm text-text">
+                {item}
+              </li>
+            ))}
+          </ul>
+        </li>
+      ))}
+    </ul>
+
+    {associations.length > 0 && (
+      <div class="mt-12 border-t border-border pt-8 text-center">
+        <p class="text-xs font-bold uppercase tracking-widest text-text-muted">
+          Buying groups &amp; associations supported
+        </p>
+        <ul class="mt-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-3" role="list">
+          {associations.map((name) => (
+            <li class="font-heading text-sm font-bold uppercase tracking-wide text-primary">{name}</li>
+          ))}
+        </ul>
+      </div>
+    )}
+
+  </div>
+</section>
