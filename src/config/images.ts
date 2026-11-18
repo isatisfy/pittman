@@ -17,6 +17,7 @@
  * FOLDER STRUCTURE
  * ────────────────
  *   src/assets/images/
+ *     logo/      ← the brand logo used in the site header
  *     hero/      ← one image used in the homepage Hero section
  *     about/     ← one image used in the About section and About page
  *     gallery/   ← all project photos (drop any number of files here)
@@ -28,6 +29,15 @@
  */
 
 import type { ImageMetadata } from 'astro';
+
+// ── Logo ──────────────────────────────────────────────────────────────────
+// The brand logo in the site header. Transparent PNG, 618 × 143 (4.32:1),
+// black artwork, so it suits the light header only. The dark footer keeps its
+// text wordmark by choice — that is settled, not pending. Do not reuse this
+// file there: black artwork on the dark footer would be close to invisible.
+//
+import logoImageSrc from '../assets/images/logo/pittman-industrial-marketing.png';
+export const logoImage: ImageMetadata = logoImageSrc;
 
 // ── Hero ──────────────────────────────────────────────────────────────────────
 // Recommended: landscape image, at least 1600 × 1200 px
