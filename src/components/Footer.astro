@@ -1,5 +1,5 @@
 ---
-import { brand } from '../config/brand';
+import { brand, brandNameSentence } from '../config/brand';
 import { client } from '../data/client';
 
 const year = new Date().getFullYear();
@@ -113,7 +113,7 @@ const navCols = [
 
     <!-- Copyright -->
     <div class="mt-10 border-t border-surface/10 pt-6 text-center text-sm">
-      &copy; {year} {brand.name}. All rights reserved.
+      &copy; {year} {brandNameSentence} All rights reserved.
     </div>
   </div>
 </footer>

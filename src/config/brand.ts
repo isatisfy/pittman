@@ -61,3 +61,15 @@ export const brand = {
 } as const;
 
 export type Brand = typeof brand;
+
+/**
+ * The business name as it falls at the END of a sentence.
+ *
+ * `brand.name` ends in "Inc." and that abbreviation's period also closes the
+ * sentence, so writing `${brand.name}.` renders "Inc..". Use this instead
+ * wherever the name ends a sentence. A client name without a trailing period
+ * still gets one, so this stays correct when the name is swapped.
+ */
+export const brandNameSentence: string = brand.name.endsWith('.')
+  ? brand.name
+  : `${brand.name}.`;

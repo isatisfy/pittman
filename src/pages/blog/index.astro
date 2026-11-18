@@ -5,13 +5,13 @@ import Footer from '../../components/Footer.astro';
 import Banner from '../../components/Banner.astro';
 import CTA from '../../components/CTA.astro';
 import { getCollection } from 'astro:content';
-import { brand } from '../../config/brand';
+import { brand, brandNameSentence } from '../../config/brand';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<BaseLayout title="Blog" description={`Notes, guides and product news from ${brand.name}.`}>
+<BaseLayout title="Blog" description={`Notes, guides and product news from ${brandNameSentence}`}>
   <Header slot="header" />
 
   <Banner title="Blog" />

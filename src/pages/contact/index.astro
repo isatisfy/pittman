@@ -3,11 +3,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Banner from '../../components/Banner.astro';
-import { brand } from '../../config/brand';
+import { brand, brandNameSentence } from '../../config/brand';
 import { client } from '../../data/client';
 ---
 
-<BaseLayout title="Contact" description={`Get in touch with ${brand.name}. Request a quote or ask us about an application.`}>
+<BaseLayout title="Contact" description={`Get in touch with ${brandNameSentence} Request a quote or ask us about an application.`}>
   <Header slot="header" />
 
   <Banner title="Contact Us" />

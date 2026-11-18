@@ -4,7 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Banner from '../components/Banner.astro';
 import CTA from '../components/CTA.astro';
-import { brand } from '../config/brand';
+import { brand, brandNameSentence } from '../config/brand';
 import { client } from '../data/client';
 
 /**
@@ -29,7 +29,7 @@ const reviews: Review[] = [];
 
 <BaseLayout
   title="Reviews"
-  description={`Read what customers say about working with ${brand.name}.`}
+  description={`Read what customers say about working with ${brandNameSentence}`}
 >
   <Header slot="header" />
 
