@@ -608,7 +608,7 @@
           ]
         }
       ],
-      "frontmatter": "import { Image } from 'astro:assets';\nimport type { ImageMetadata } from 'astro';\nimport { brand } from '../config/brand';\nimport { client } from '../data/client';\nimport { heroImage as localHeroImage } from '../config/images';\n\n// Fallback Unsplash URL used until a local image is added to\n// src/assets/images/hero/ and registered in src/config/images.ts\nconst PLACEHOLDER = 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80';\n\ninterface Props {\n  topper?: string;\n  heading?: string;\n  description?: string;\n  ctaLabel?: string;\n  ctaHref?: string;\n  secondaryLabel?: string;\n  secondaryHref?: string;\n  imageSrc?: ImageMetadata | string;\n  imageAlt?: string;\n}\n\nconst {\n  topper = 'Manufacturers Representative',\n  heading = brand.tagline,\n  description = brand.description,\n  ctaLabel = 'Request a Quote',\n  ctaHref = '/contact',\n  secondaryLabel = 'Our Services',\n  secondaryHref = '/services',\n  imageSrc = localHeroImage ?? PLACEHOLDER,\n  imageAlt = '5-axis machining center in operation',\n} = Astro.props;",
+      "frontmatter": "import { Image } from 'astro:assets';\nimport type { ImageMetadata } from 'astro';\nimport { brand } from '../config/brand';\nimport { client } from '../data/client';\nimport { heroImage as localHeroImage } from '../config/images';\n\n// Fallback Unsplash URL used until a local image is added to\n// src/assets/images/hero/ and registered in src/config/images.ts\nconst PLACEHOLDER = 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80';\n\ninterface Props {\n  topper?: string;\n  heading?: string;\n  description?: string;\n  ctaLabel?: string;\n  ctaHref?: string;\n  secondaryLabel?: string;\n  secondaryHref?: string;\n  imageSrc?: ImageMetadata | string;\n  imageAlt?: string;\n}\n\nconst {\n  topper = 'Manufacturers Representative',\n  heading = brand.tagline,\n  description = brand.description,\n  ctaLabel = 'Contact Us Now »',\n  ctaHref = '/contact',\n  secondaryLabel = 'Our Services',\n  secondaryHref = '/services',\n  imageSrc = localHeroImage ?? PLACEHOLDER,\n  imageAlt = '5-axis machining center in operation',\n} = Astro.props;",
       "props": [
         {
           "name": "topper",
@@ -628,7 +628,7 @@
         {
           "name": "ctaLabel",
           "type": "text",
-          "value": "Request a Quote"
+          "value": "Contact Us Now »"
         },
         {
           "name": "ctaHref",
@@ -1181,7 +1181,7 @@
           "tag": "astro-code",
           "attrs": {
             "builder-data-element": "code",
-            "data-open": "<BaseLayout title=\"Blog\" description={`Notes, guides and product news from ${brand.name}.`}>",
+            "data-open": "<BaseLayout title=\"Blog\" description={`Notes, guides and product news from ${brandNameSentence}`}>",
             "data-close": "</BaseLayout>"
           },
           "children": [
@@ -1249,7 +1249,7 @@
           "rules": []
         }
       ],
-      "frontmatter": "import BaseLayout from '../../layouts/BaseLayout.astro';\nimport Header from '../../components/Header.astro';\nimport Footer from '../../components/Footer.astro';\nimport Banner from '../../components/Banner.astro';\nimport CTA from '../../components/CTA.astro';\nimport { getCollection } from 'astro:content';\nimport { brand } from '../../config/brand';\n\nconst posts = (await getCollection('blog', ({ data }) => !data.draft))\n  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());",
+      "frontmatter": "import BaseLayout from '../../layouts/BaseLayout.astro';\nimport Header from '../../components/Header.astro';\nimport Footer from '../../components/Footer.astro';\nimport Banner from '../../components/Banner.astro';\nimport CTA from '../../components/CTA.astro';\nimport { getCollection } from 'astro:content';\nimport { brand, brandNameSentence } from '../../config/brand';\n\nconst posts = (await getCollection('blog', ({ data }) => !data.draft))\n  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());",
       "file": "own"
     },
     "contact/index": {
@@ -1261,7 +1261,7 @@
           "tag": "astro-code",
           "attrs": {
             "builder-data-element": "code",
-            "data-open": "<BaseLayout title=\"Contact\" description={`Get in touch with ${brand.name}. Request a quote or ask us about an application.`}>",
+            "data-open": "<BaseLayout title=\"Contact\" description={`Get in touch with ${brandNameSentence} Request a quote or ask us about an application.`}>",
             "data-close": "</BaseLayout>"
           },
           "children": [
@@ -1804,7 +1804,7 @@
           "rules": []
         }
       ],
-      "frontmatter": "import BaseLayout from '../../layouts/BaseLayout.astro';\nimport Header from '../../components/Header.astro';\nimport Footer from '../../components/Footer.astro';\nimport Banner from '../../components/Banner.astro';\nimport { brand } from '../../config/brand';\nimport { client } from '../../data/client';",
+      "frontmatter": "import BaseLayout from '../../layouts/BaseLayout.astro';\nimport Header from '../../components/Header.astro';\nimport Footer from '../../components/Footer.astro';\nimport Banner from '../../components/Banner.astro';\nimport { brand, brandNameSentence } from '../../config/brand';\nimport { client } from '../../data/client';",
       "file": "own"
     },
     "contact/success": {
@@ -2069,7 +2069,7 @@
           "tag": "astro-code",
           "attrs": {
             "builder-data-element": "code",
-            "data-open": "<BaseLayout\n  title=\"Reviews\"\n  description={`Read what customers say about working with ${brand.name}.`}\n>",
+            "data-open": "<BaseLayout\n  title=\"Reviews\"\n  description={`Read what customers say about working with ${brandNameSentence}`}\n>",
             "data-close": "</BaseLayout>"
           },
           "children": [
@@ -2137,7 +2137,7 @@
           "rules": []
         }
       ],
-      "frontmatter": "import BaseLayout from '../layouts/BaseLayout.astro';\nimport Header from '../components/Header.astro';\nimport Footer from '../components/Footer.astro';\nimport Banner from '../components/Banner.astro';\nimport CTA from '../components/CTA.astro';\nimport { brand } from '../config/brand';\nimport { client } from '../data/client';\n\n/**\n * Reviews\n *\n * The template shipped with six invented testimonials and an aggregateRating\n * built from them. Publishing fabricated review data is a real exposure under\n * Google's structured-data policy and FTC endorsement rules, so both are gone.\n *\n * To restore this page: add real, attributable quotes to `reviews` below. Only\n * re-add aggregateRating schema once the ratings it reports are genuine.\n */\ninterface Review {\n  quote: string;\n  name: string;\n  location: string;\n  rating?: number;\n}\n\nconst reviews: Review[] = [];",
+      "frontmatter": "import BaseLayout from '../layouts/BaseLayout.astro';\nimport Header from '../components/Header.astro';\nimport Footer from '../components/Footer.astro';\nimport Banner from '../components/Banner.astro';\nimport CTA from '../components/CTA.astro';\nimport { brand, brandNameSentence } from '../config/brand';\nimport { client } from '../data/client';\n\n/**\n * Reviews\n *\n * The template shipped with six invented testimonials and an aggregateRating\n * built from them. Publishing fabricated review data is a real exposure under\n * Google's structured-data policy and FTC endorsement rules, so both are gone.\n *\n * To restore this page: add real, attributable quotes to `reviews` below. Only\n * re-add aggregateRating schema once the ratings it reports are genuine.\n */\ninterface Review {\n  quote: string;\n  name: string;\n  location: string;\n  rating?: number;\n}\n\nconst reviews: Review[] = [];",
       "file": "own"
     },
     "services": {
@@ -2281,14 +2281,14 @@
     }
   },
   "emitted": {
-    "src/components/Hero.astro": "79eee4664345c3f0+",
+    "src/components/Hero.astro": "b605b83ced38fe66+",
     "src/layouts/BaseLayout.astro": "d521e338c3cf8aa6+",
     "src/pages/about.astro": "409a0fff34208bc5+",
-    "src/pages/blog/index.astro": "5dd6a9110012d302+",
-    "src/pages/contact/index.astro": "54379f5dfa550b07+",
+    "src/pages/blog/index.astro": "d027caf3bfd4debd+",
+    "src/pages/contact/index.astro": "7f8462647485faee+",
     "src/pages/contact/success.astro": "1fde4ea66e1f80f5+",
     "src/pages/index.astro": "8615e783d208ff2c+",
-    "src/pages/reviews.astro": "8f1ef4cd024df829+",
+    "src/pages/reviews.astro": "c8e5ef9d33d6804f+",
     "src/pages/services.astro": "656ba2d5b0eeaeac+",
     "src/styles/generated/framework.css": "86745f12f181d3e9"
   }
