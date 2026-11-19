@@ -21,6 +21,7 @@
  *     hero/      ← one image used in the homepage Hero section
  *     about/     ← one image used in the About section and About page
  *     gallery/   ← all project photos (drop any number of files here)
+ *     buying-groups/ ← association + buying-group logos for the homepage strip
  *
  * Until you add local files the components fall back to placeholder URLs
  * served from Unsplash. Those are fine for development/demo but are NOT
@@ -95,3 +96,61 @@ const discovered = Object.entries(
 // Drop files into src/assets/images/gallery/ and they appear automatically;
 // while the folder is empty the Gallery section hides itself entirely.
 export const galleryImages: GalleryImage[] = discovered;
+
+// ── Buying groups & associations ──────────────────────────────────────────────
+// Logos for the scrolling strip at the foot of the Audiences section.
+//
+// These files are PRE-PROCESSED, not raw client assets. The originals are
+// 300 x 300 squares that are 43-91% transparent padding, with artwork heights
+// varying 4x (IBC's wordmark is 55px tall, STAFDA's is 226px). Rendered as-is
+// they would appear at wildly different sizes. Each has therefore been trimmed
+// to its artwork and resized so it fits a shared 132 x 48 display box, stored
+// at exactly 2x that fit. The component renders at intrinsic/2 with
+// densities={[1,2]}, so neither density ever upscales.
+//
+// TO ADD OR REPLACE ONE: trim the transparent padding, scale it to fit inside
+// 264 x 96 (the 2x box), drop it in src/assets/images/buying-groups/ and add
+// its slug + display name to the list below. Order here is display order.
+//
+// The names below are read off the artwork itself, so they are the alt text a
+// screen reader hears. Where a mark spells out its full name, that is used;
+// where it shows only an abbreviation, only the abbreviation is used. Nothing
+// here is expanded from guesswork.
+//
+// KNOWN ISSUE — iwdc.png is a white-on-black lockup, so it is 98% opaque where
+// every other logo here is 20-50%. On the light strip it reads as a heavy black
+// tile rather than a logo. It is not fixable in code: knocking the black out
+// would leave white artwork invisible on white. Ask the client for a version
+// made for light backgrounds and drop it in to replace the file.
+export interface BuyingGroupLogo {
+  src: ImageMetadata;
+  /** Shown to screen readers as the image's alt text. */
+  name: string;
+}
+
+const buyingGroupFiles = import.meta.glob<{ default: ImageMetadata }>(
+  '../assets/images/buying-groups/*.{jpg,jpeg,png,webp,avif}',
+  { eager: true },
+);
+
+export const buyingGroupLogos: BuyingGroupLogo[] = (
+  [
+    ['ad', 'AD'],
+    ['dpa', 'DPA Buying Group'],
+    ['ibc', 'IBC'],
+    ['incom', 'INCOM Distributor Supply'],
+    ['indica', 'Indica Marketing Group'],
+    ['isa', 'ISA — Industrial Supply Association'],
+    ['iwdc', 'IWDC'],
+    ['netplus', 'NetPlus Alliance'],
+    ['sme', 'SME'],
+    ['stafda', 'STAFDA'],
+  ] as const
+).flatMap(([slug, name]) => {
+  const match = Object.entries(buyingGroupFiles).find(([path]) =>
+    path.split('/').pop()!.replace(/.[^.]+$/, '') === slug,
+  );
+  // A missing file drops that logo rather than failing the build: the strip is
+  // supporting detail, not something worth taking the whole site down for.
+  return match ? [{ src: match[1].default, name }] : [];
+});

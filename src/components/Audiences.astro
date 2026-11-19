@@ -18,6 +18,8 @@
  * (~85% of marketing effort). The old site led with manufacturers.
  */
 
+import AssociationLogos from './AssociationLogos.astro';
+
 interface Audience {
   title: string;
   badge?: string;
@@ -32,7 +34,6 @@ interface Props {
   heading?: string;
   description?: string;
   audiences?: Audience[];
-  associations?: string[];
 }
 
 const {
@@ -87,9 +88,6 @@ const {
     },
   ],
 
-  // Buying groups and associations listed on the client's own site. Verify
-  // before launch: these were read from the logo images, not from text.
-  associations = ['AD', 'DPA', 'IBC', 'INCOM', 'Indica', 'ISA', 'IWDC', 'Netplus', 'SME', 'STAFDA'],
 } = Astro.props;
 
 const icons: Record<Audience['icon'], string> = {
@@ -150,18 +148,7 @@ const icons: Record<Audience['icon'], string> = {
       ))}
     </ul>
 
-    {associations.length > 0 && (
-      <div class="mt-12 border-t border-border pt-8 text-center">
-        <p class="text-xs font-bold uppercase tracking-widest text-text-muted">
-          Buying groups &amp; associations supported
-        </p>
-        <ul class="mt-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-3" role="list">
-          {associations.map((name) => (
-            <li class="font-heading text-sm font-bold uppercase tracking-wide text-primary">{name}</li>
-          ))}
-        </ul>
-      </div>
-    )}
+    <AssociationLogos />
 
   </div>
 </section>

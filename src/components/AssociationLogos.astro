@@ -1,0 +1,203 @@
+---
+/**
+ * AssociationLogos
+ *
+ * The scrolling strip of buying-group and association logos at the foot of the
+ * Audiences section. Replaces the plain text list of abbreviations that stood
+ * there before.
+ *
+ * MOTION AND ACCESSIBILITY
+ * The strip scrolls continuously, which WCAG 2.2.2 (Pause, Stop, Hide) treats
+ * as moving content: anything that animates for more than five seconds needs a
+ * real way to stop it. Three mechanisms cover that here:
+ *   1. A pause/play button, which is the formal conformance mechanism. Hover
+ *      alone would not be one — it does nothing for keyboard or touch users.
+ *   2. Pause on hover, and on keyboard focus landing anywhere inside.
+ *   3. prefers-reduced-motion, which drops the animation entirely and lays the
+ *      logos out as a static centred wrap. That is the honest fallback — a
+ *      slower scroll would still be scroll.
+ *
+ * HOW THE LOOP WORKS
+ * The track holds the same list twice and slides left by exactly 50% — one
+ * full copy — before restarting, so the restart is invisible. Spacing is
+ * margin on each item rather than `gap` on the list, because a gap would not
+ * apply at the seam where the second copy begins and the joint would show.
+ * The second copy is aria-hidden so screen readers hear ten logos, not twenty.
+ */
+
+import { Image } from 'astro:assets';
+import { buyingGroupLogos, type BuyingGroupLogo } from '../config/images';
+
+interface Props {
+  label?: string;
+  logos?: BuyingGroupLogo[];
+  /** Seconds for one full pass of the list. Larger is slower. */
+  duration?: number;
+}
+
+const {
+  label = 'Buying groups & associations supported',
+  logos = buyingGroupLogos,
+  duration = 40,
+} = Astro.props;
+---
+
+{logos.length > 0 && (
+  <div class="mt-12 border-t border-border pt-8">
+
+    <div class="flex flex-wrap items-center justify-center gap-x-3">
+      <p class="text-xs font-bold uppercase tracking-widest text-text-muted">{label}</p>
+
+      <button
+        type="button"
+        data-marquee-toggle
+        aria-label="Pause the scrolling logos"
+        class="marquee-toggle inline-flex size-11 items-center justify-center rounded-md text-text-muted transition-colors hover:bg-surface hover:text-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+      >
+        <svg data-icon-pause class="size-4" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+          <rect x="3" y="2.5" width="3.5" height="11" rx="1" />
+          <rect x="9.5" y="2.5" width="3.5" height="11" rx="1" />
+        </svg>
+        <svg data-icon-play class="hidden size-4" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M4.5 3.1a1 1 0 0 1 1.52-.85l7 4.9a1 1 0 0 1 0 1.7l-7 4.9A1 1 0 0 1 4.5 12.9V3.1Z" />
+        </svg>
+      </button>
+    </div>
+
+    <div
+      class="marquee mt-4"
+      data-marquee
+      data-paused="false"
+      style={`--marquee-duration:${duration}s`}
+    >
+      <div class="marquee-track">
+        {[0, 1].map((copy) => (
+          <ul class="marquee-group" role="list" aria-hidden={copy === 1 ? 'true' : undefined}>
+            {logos.map(({ src, name }) => (
+              <li class="mx-6 flex h-12 w-[132px] shrink-0 items-center justify-center">
+                <Image
+                  src={src}
+                  alt={copy === 1 ? '' : name}
+                  width={src.width / 2}
+                  height={src.height / 2}
+                  densities={[1, 2]}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </li>
+            ))}
+          </ul>
+        ))}
+      </div>
+    </div>
+
+  </div>
+)}
+
+<style>
+  .marquee {
+    /* Fade both edges so logos enter and leave rather than being guillotined
+       at the container boundary. The fade is narrower on phones: 4rem a side
+       would eat a third of a 375px screen. */
+    --marquee-fade: 1.5rem;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 var(--marquee-fade),
+      #000 calc(100% - var(--marquee-fade)),
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 var(--marquee-fade),
+      #000 calc(100% - var(--marquee-fade)),
+      transparent
+    );
+  }
+
+  @media (min-width: 640px) {
+    .marquee { --marquee-fade: 4rem; }
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: association-marquee var(--marquee-duration, 40s) linear infinite;
+  }
+
+  .marquee-group {
+    display: flex;
+    align-items: center;
+  }
+
+  @keyframes association-marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* Hover stops it too, so a reader is never chasing a logo with the pointer.
+     :focus-within is dead weight today - the logos are images, not links, so
+     nothing inside can take focus - and is here so the strip keeps behaving if
+     the logos are ever made clickable. */
+  .marquee:hover .marquee-track,
+  .marquee:focus-within .marquee-track,
+  .marquee[data-paused='true'] .marquee-track {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    /* No animation at all: one static, centred, wrapping row. The duplicate
+       copy and the pause button both become meaningless, so both go. */
+    .marquee {
+      overflow: visible;
+      -webkit-mask-image: none;
+      mask-image: none;
+    }
+    .marquee-track {
+      animation: none;
+      width: 100%;
+    }
+    .marquee-group {
+      flex-wrap: wrap;
+      justify-content: center;
+      row-gap: 1rem;
+    }
+    .marquee-group[aria-hidden='true'] {
+      display: none;
+    }
+    .marquee-toggle {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  function initAssociationMarquee() {
+    document.querySelectorAll<HTMLElement>('[data-marquee]').forEach((marquee) => {
+      if (marquee.dataset.marqueeInit === 'true') return;
+      marquee.dataset.marqueeInit = 'true';
+
+      const block = marquee.parentElement;
+      const toggle = block?.querySelector<HTMLButtonElement>('[data-marquee-toggle]');
+      const iconPause = toggle?.querySelector<SVGElement>('[data-icon-pause]');
+      const iconPlay = toggle?.querySelector<SVGElement>('[data-icon-play]');
+      if (!toggle || !iconPause || !iconPlay) return;
+
+      toggle.addEventListener('click', () => {
+        const paused = marquee.dataset.paused !== 'true';
+        marquee.dataset.paused = String(paused);
+        iconPause.classList.toggle('hidden', paused);
+        iconPlay.classList.toggle('hidden', !paused);
+        toggle.setAttribute(
+          'aria-label',
+          paused ? 'Resume the scrolling logos' : 'Pause the scrolling logos',
+        );
+      });
+    });
+  }
+
+  initAssociationMarquee();
+  document.addEventListener('astro:after-swap', initAssociationMarquee);
+</script>
