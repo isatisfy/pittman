@@ -1,0 +1,188 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Banner from '../components/Banner.astro';
+import CTA from '../components/CTA.astro';
+import { brand } from '../config/brand';
+
+/**
+ * PRODUCTS
+ *
+ * A deliberately simplified replacement for the category pages on the live
+ * site, which are a grid of image tiles with no words on them at all.
+ *
+ * WHERE THE CATEGORIES CAME FROM
+ * The seven below are the top-level items in the live site's Products menu,
+ * minus "Services", which is its own section of this site. They are NOT the
+ * same as the tiles on the live /products/ page, and the client should settle
+ * the difference:
+ *
+ *   - The menu has "Hand & Power Tools"; the tiles do not.
+ *   - The tiles have "Material Storage & Roller Tables"; the menu does not.
+ *     Following the menu drops that category. If it is still a line they
+ *     carry, it needs adding here.
+ *   - The same category is named two ways: "Gloves, Rags, Safety, Washroom, &
+ *     Wipers" in the menu, "Wipes, Rags, Gloves, & Washroom" on the tiles.
+ *     The menu wording is used.
+ *
+ * THE DESCRIPTIONS ARE DRAFTED, NOT SOURCED
+ * The live site carries no description for any category — no blurb, no intro,
+ * nothing but a heading and a picture. Every `description` below was written
+ * for this page from the category name and its sub-items. They state only
+ * what the category plainly contains: no brands, no claims about stock,
+ * lead times or capability that could not be backed up. Treat them as a first
+ * draft for the client to correct.
+ *
+ * SUB-CATEGORIES
+ * `includes` lists the sub-items that exist in the live site's menu today.
+ * Only four of the seven have any, which is why three cards show none — that
+ * is the real shape of their catalogue, not an omission. They are plain text
+ * rather than links on purpose: the client is deciding how sub-categories
+ * should work after reviewing this page, so nothing here commits to a URL
+ * structure yet.
+ */
+
+interface Category {
+  title: string;
+  description: string;
+  /** Sub-items as the live site's menu lists them. Empty where it lists none. */
+  includes: string[];
+  icon: string;
+}
+
+const categories: Category[] = [
+  {
+    title: 'Cutting Tools & Accessories',
+    description:
+      'Cutting tools and the holding that makes them work — bandsaw blades through to the tool and part holding they run in.',
+    includes: ['Bandsaw blades', 'Cutting tools', 'Part holding', 'Tool holding'],
+    icon: 'cog',
+  },
+  {
+    title: 'Fluids, Filtration & Air',
+    description:
+      'Metalworking fluids and the equipment that keeps them in service, including recycling, parts washers and filter tanks.',
+    includes: ['Fluids', 'Fluid recycling', 'Parts washers & filter tanks'],
+    icon: 'beaker',
+  },
+  {
+    title: 'Hand & Power Tools',
+    description:
+      'Hand and power tools for the shop floor, and the accessories that go with them.',
+    includes: ['Hand & power tool accessories'],
+    icon: 'bolt',
+  },
+  {
+    title: 'Machinery & Accessories',
+    description:
+      'Shop machinery and the attachments that work alongside it, including saws and lift magnets.',
+    includes: ['Lift magnets', 'Saws'],
+    icon: 'cube',
+  },
+  {
+    title: 'Marking Products',
+    description: 'Marking and identification for parts, stock and tooling.',
+    includes: [],
+    icon: 'pencil',
+  },
+  {
+    title: 'Precision Tools & Metrology',
+    description:
+      'Precision measurement and inspection, from hand gauges through to metrology equipment.',
+    includes: [],
+    icon: 'gauge',
+  },
+  {
+    title: 'Gloves, Rags, Safety, Washroom, & Wipers',
+    description:
+      'Consumables and personal protection — gloves, wipers and rags, safety supplies and washroom stock.',
+    includes: [],
+    icon: 'hand',
+  },
+];
+
+// Heroicons v1 outline paths, matching the icon style used on the Services
+// page and in the Audiences section.
+const icons: Record<string, string> = {
+  cog: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065zM15 12a3 3 0 11-6 0 3 3 0 016 0z',
+  beaker:
+    'M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z',
+  bolt: 'M13 10V3L4 14h7v7l9-11h-7z',
+  cube: 'M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4',
+  pencil:
+    'M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z',
+  gauge:
+    'M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4',
+  hand: 'M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11',
+};
+---
+
+<BaseLayout
+  title="Products"
+  description={`The product lines ${brand.name} represents — cutting tools, fluids and filtration, hand and power tools, machinery, marking, metrology, and safety consumables.`}
+>
+  <Header slot="header" />
+
+  <Banner title="Products" />
+
+  <section class="py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+
+      <div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">
+          The lines we represent
+        </h2>
+        <p class="mt-3 leading-relaxed text-text-muted">
+          Our range runs across metalworking and industrial supply. Territory managers
+          work with you, your distributor and the manufacturer to match the
+          specification to the application — which is where cost per unit actually
+          comes down.
+        </p>
+      </div>
+
+      <ul class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3" role="list">
+        {categories.map(({ title, description, includes, icon }) => (
+          <li class="flex flex-col rounded-lg border border-border bg-background p-6 shadow-sm">
+            <span class="inline-flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <svg class="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={icons[icon]} />
+              </svg>
+            </span>
+
+            <h3 class="mt-4 font-heading text-h3 font-semibold leading-snug text-text">
+              {title}
+            </h3>
+            <p class="mt-2 leading-relaxed text-text-muted">{description}</p>
+
+            {includes.length > 0 && (
+              <>
+                <p class="mt-5 text-xs font-bold uppercase tracking-widest text-text-muted">
+                  Includes
+                </p>
+                <ul class="mt-2.5 flex flex-wrap gap-2" role="list">
+                  {includes.map((item) => (
+                    <li class="rounded-full border border-border bg-surface px-3 py-1 text-sm text-text">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+          </li>
+        ))}
+      </ul>
+
+      <p class="mx-auto mt-12 max-w-2xl text-center leading-relaxed text-text-muted">
+        Looking for something that is not listed, or not sure which product suits the
+        job? Tell us about the application and we will point you at the right line and
+        the right distributor.
+      </p>
+
+    </div>
+  </section>
+
+  <CTA />
+
+  <Footer slot="footer" />
+</BaseLayout>

@@ -2138,6 +2138,162 @@
       "frontmatter": "import BaseLayout from '../layouts/BaseLayout.astro';\nimport Header from '../components/Header.astro';\nimport Footer from '../components/Footer.astro';\nimport Hero from '../components/Hero.astro';\nimport Audiences from '../components/Audiences.astro';\nimport Services from '../components/Services.astro';\nimport About from '../components/About.astro';\nimport Reviews from '../components/Reviews.astro';\nimport Gallery from '../components/Gallery.astro';\nimport CTA from '../components/CTA.astro';\nimport { brand } from '../config/brand';\nimport { client } from '../data/client';",
       "file": "own"
     },
+    "products": {
+      "route": "products",
+      "title": "Products",
+      "root": [
+        {
+          "id": "r-code-mx",
+          "tag": "astro-code",
+          "attrs": {
+            "builder-data-element": "code",
+            "data-open": "<BaseLayout\n  title=\"Products\"\n  description={`The product lines ${brand.name} represents — cutting tools, fluids and filtration, hand and power tools, machinery, marking, metrology, and safety consumables.`}\n>",
+            "data-close": "</BaseLayout>"
+          },
+          "children": [
+            {
+              "id": "r-code-ml",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<Header slot=\"header\" />"
+            },
+            {
+              "id": "r-code-mm",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<Banner title=\"Products\" />"
+            },
+            {
+              "id": "r-section-mn",
+              "tag": "section",
+              "classes": [
+                "py-section"
+              ],
+              "children": [
+                {
+                  "id": "r-div-mo",
+                  "tag": "div",
+                  "classes": [
+                    "mx-auto",
+                    "max-w-site",
+                    "px-4",
+                    "sm:px-6"
+                  ],
+                  "children": [
+                    {
+                      "id": "r-div-mp",
+                      "tag": "div",
+                      "classes": [
+                        "mx-auto",
+                        "mb-10",
+                        "max-w-2xl",
+                        "text-center",
+                        "lg:mb-14"
+                      ],
+                      "children": [
+                        {
+                          "id": "r-h2-mq",
+                          "tag": "h2",
+                          "classes": [
+                            "font-heading",
+                            "text-h2",
+                            "font-bold",
+                            "uppercase",
+                            "text-text"
+                          ],
+                          "text": "\n          The lines we represent\n        "
+                        },
+                        {
+                          "id": "r-p-mr",
+                          "tag": "p",
+                          "classes": [
+                            "mt-3",
+                            "leading-relaxed",
+                            "text-text-muted"
+                          ],
+                          "text": "\n          Our range runs across metalworking and industrial supply. Territory managers\n          work with you, your distributor and the manufacturer to match the\n          specification to the application — which is where cost per unit actually\n          comes down.\n        "
+                        }
+                      ]
+                    },
+                    {
+                      "id": "r-ul-ms",
+                      "tag": "ul",
+                      "classes": [
+                        "grid",
+                        "grid-cols-1",
+                        "gap-6",
+                        "md:grid-cols-2",
+                        "lg:grid-cols-3"
+                      ],
+                      "attrs": {
+                        "role": "list"
+                      },
+                      "children": [
+                        {
+                          "id": "r-code-mt",
+                          "tag": "astro-code",
+                          "attrs": {
+                            "builder-data-element": "code"
+                          },
+                          "children": [],
+                          "html": "{categories.map(({ title, description, includes, icon }) => (\n          <li class=\"flex flex-col rounded-lg border border-border bg-background p-6 shadow-sm\">\n            <span class=\"inline-flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary\">\n              <svg class=\"size-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" aria-hidden=\"true\">\n                <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d={icons[icon]} />\n              </svg>\n            </span>\n\n            <h3 class=\"mt-4 font-heading text-h3 font-semibold leading-snug text-text\">\n              {title}\n            </h3>\n            <p class=\"mt-2 leading-relaxed text-text-muted\">{description}</p>\n\n            {includes.length > 0 && (\n              <>\n                <p class=\"mt-5 text-xs font-bold uppercase tracking-widest text-text-muted\">\n                  Includes\n                </p>\n                <ul class=\"mt-2.5 flex flex-wrap gap-2\" role=\"list\">\n                  {includes.map((item) => (\n                    <li class=\"rounded-full border border-border bg-surface px-3 py-1 text-sm text-text\">\n                      {item}\n                    </li>\n                  ))}\n                </ul>\n              </>\n            )}\n          </li>\n        ))}"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "r-p-mu",
+                      "tag": "p",
+                      "classes": [
+                        "mx-auto",
+                        "mt-12",
+                        "max-w-2xl",
+                        "text-center",
+                        "leading-relaxed",
+                        "text-text-muted"
+                      ],
+                      "text": "\n        Looking for something that is not listed, or not sure which product suits the\n        job? Tell us about the application and we will point you at the right line and\n        the right distributor.\n      "
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "r-code-mv",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<CTA />"
+            },
+            {
+              "id": "r-code-mw",
+              "tag": "astro-code",
+              "attrs": {
+                "builder-data-element": "code"
+              },
+              "children": [],
+              "html": "<Footer slot=\"footer\" />"
+            }
+          ]
+        }
+      ],
+      "stylesheets": [
+        {
+          "id": "global",
+          "name": "Global",
+          "rules": []
+        }
+      ],
+      "frontmatter": "import BaseLayout from '../layouts/BaseLayout.astro';\nimport Header from '../components/Header.astro';\nimport Footer from '../components/Footer.astro';\nimport Banner from '../components/Banner.astro';\nimport CTA from '../components/CTA.astro';\nimport { brand } from '../config/brand';\n\n/**\n * PRODUCTS\n *\n * A deliberately simplified replacement for the category pages on the live\n * site, which are a grid of image tiles with no words on them at all.\n *\n * WHERE THE CATEGORIES CAME FROM\n * The seven below are the top-level items in the live site's Products menu,\n * minus \"Services\", which is its own section of this site. They are NOT the\n * same as the tiles on the live /products/ page, and the client should settle\n * the difference:\n *\n *   - The menu has \"Hand & Power Tools\"; the tiles do not.\n *   - The tiles have \"Material Storage & Roller Tables\"; the menu does not.\n *     Following the menu drops that category. If it is still a line they\n *     carry, it needs adding here.\n *   - The same category is named two ways: \"Gloves, Rags, Safety, Washroom, &\n *     Wipers\" in the menu, \"Wipes, Rags, Gloves, & Washroom\" on the tiles.\n *     The menu wording is used.\n *\n * THE DESCRIPTIONS ARE DRAFTED, NOT SOURCED\n * The live site carries no description for any category — no blurb, no intro,\n * nothing but a heading and a picture. Every `description` below was written\n * for this page from the category name and its sub-items. They state only\n * what the category plainly contains: no brands, no claims about stock,\n * lead times or capability that could not be backed up. Treat them as a first\n * draft for the client to correct.\n *\n * SUB-CATEGORIES\n * `includes` lists the sub-items that exist in the live site's menu today.\n * Only four of the seven have any, which is why three cards show none — that\n * is the real shape of their catalogue, not an omission. They are plain text\n * rather than links on purpose: the client is deciding how sub-categories\n * should work after reviewing this page, so nothing here commits to a URL\n * structure yet.\n */\n\ninterface Category {\n  title: string;\n  description: string;\n  /** Sub-items as the live site's menu lists them. Empty where it lists none. */\n  includes: string[];\n  icon: string;\n}\n\nconst categories: Category[] = [\n  {\n    title: 'Cutting Tools & Accessories',\n    description:\n      'Cutting tools and the holding that makes them work — bandsaw blades through to the tool and part holding they run in.',\n    includes: ['Bandsaw blades', 'Cutting tools', 'Part holding', 'Tool holding'],\n    icon: 'cog',\n  },\n  {\n    title: 'Fluids, Filtration & Air',\n    description:\n      'Metalworking fluids and the equipment that keeps them in service, including recycling, parts washers and filter tanks.',\n    includes: ['Fluids', 'Fluid recycling', 'Parts washers & filter tanks'],\n    icon: 'beaker',\n  },\n  {\n    title: 'Hand & Power Tools',\n    description:\n      'Hand and power tools for the shop floor, and the accessories that go with them.',\n    includes: ['Hand & power tool accessories'],\n    icon: 'bolt',\n  },\n  {\n    title: 'Machinery & Accessories',\n    description:\n      'Shop machinery and the attachments that work alongside it, including saws and lift magnets.',\n    includes: ['Lift magnets', 'Saws'],\n    icon: 'cube',\n  },\n  {\n    title: 'Marking Products',\n    description: 'Marking and identification for parts, stock and tooling.',\n    includes: [],\n    icon: 'pencil',\n  },\n  {\n    title: 'Precision Tools & Metrology',\n    description:\n      'Precision measurement and inspection, from hand gauges through to metrology equipment.',\n    includes: [],\n    icon: 'gauge',\n  },\n  {\n    title: 'Gloves, Rags, Safety, Washroom, & Wipers',\n    description:\n      'Consumables and personal protection — gloves, wipers and rags, safety supplies and washroom stock.',\n    includes: [],\n    icon: 'hand',\n  },\n];\n\n// Heroicons v1 outline paths, matching the icon style used on the Services\n// page and in the Audiences section.\nconst icons: Record<string, string> = {\n  cog: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065zM15 12a3 3 0 11-6 0 3 3 0 016 0z',\n  beaker:\n    'M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z',\n  bolt: 'M13 10V3L4 14h7v7l9-11h-7z',\n  cube: 'M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4',\n  pencil:\n    'M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z',\n  gauge:\n    'M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4',\n  hand: 'M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11',\n};",
+      "file": "own"
+    },
     "reviews": {
       "route": "reviews",
       "title": "Reviews",
@@ -2366,6 +2522,7 @@
     "src/pages/contact/index.astro": "c90831bb01c532c8+",
     "src/pages/contact/success.astro": "32f9259b7e311836+",
     "src/pages/index.astro": "7b14583c8e69b3ea+",
+    "src/pages/products.astro": "a09ab15b4f568d6b+",
     "src/pages/reviews.astro": "0a1da6700af75752+",
     "src/pages/services.astro": "656ba2d5b0eeaeac+",
     "src/styles/generated/framework.css": "86745f12f181d3e9"

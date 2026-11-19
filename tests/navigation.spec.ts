@@ -60,7 +60,7 @@ test.describe('Primary navigation', () => {
     await page.goto('/');
     await expectOnly(page, 'Home');
 
-    for (const label of ['About', 'Services', 'Reviews', 'Blog', 'Contact']) {
+    for (const label of ['About', 'Products', 'Services', 'Reviews', 'Blog', 'Contact']) {
       await clickNav(page, label);
       await expectOnly(page, label);
     }
