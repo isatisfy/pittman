@@ -22,15 +22,46 @@ import { client } from '../../data/client';
           Fill out the form below and we'll get back to you within one business day.
         </p>
 
+        <!--
+          Revealed by the script at the foot of this file when the handler
+          sends the visitor back with ?error. It cannot be rendered server-side
+          because this page is static HTML: there is no request to read the
+          query string from. It names the phone number and address on purpose,
+          so a failure is a detour rather than a dead end.
+        -->
+        <div
+          id="contact-error"
+          role="alert"
+          tabindex="-1"
+          class="mb-6 hidden rounded-md border border-accent-ink/40 bg-accent/10 p-4"
+        >
+          <p class="text-sm font-bold text-text">That message didn&rsquo;t send.</p>
+          <p class="mt-1.5 text-sm text-text-muted">
+            Something went wrong at our end — please try again. If it keeps failing, call
+            <a href={`tel:${client.phoneForTel}`} class="font-medium text-primary underline underline-offset-2">{client.phoneFormatted}</a>
+            or email
+            <a href={`mailto:${client.email}`} class="font-medium text-primary underline underline-offset-2">{client.email}</a>.
+          </p>
+        </div>
+
+        <!--
+          Posts to a Vercel serverless function (api/contact.js), NOT to
+          Netlify Forms, which is what carried this form before the move to
+          Vercel. The function redirects to /contact/success when the message
+          is away and back here with ?error=send when it is not, so the form
+          still needs no JavaScript in order to work.
+        -->
         <form
           name="contact"
           method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
-          action="/contact/success"
+          action="/api/contact"
           class="flex flex-col gap-5"
         >
-          <input type="hidden" name="form-name" value="contact" />
+          <!--
+            Honeypot. Spam bots fill in every field they find; api/contact.js
+            drops any submission that arrives with a value in this one. Kept
+            from both sight and assistive tech.
+          -->
           <p class="hidden" aria-hidden="true">
             <label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
           </p>
@@ -129,3 +160,26 @@ import { client } from '../../data/client';
 
   <Footer slot="footer" />
 </BaseLayout>
+
+<script>
+  /**
+   * Show the failure notice when api/contact.js has sent the visitor back
+   * with ?error. This page is static, so the query string can only be read
+   * here, in the browser.
+   *
+   * Focus moves to the notice rather than merely scrolling to it: the visitor
+   * pressed Send and arrived somewhere new, so a screen reader needs to be
+   * told why, and a sighted visitor needs their eye taken to it.
+   */
+  function syncContactError() {
+    const alert = document.getElementById('contact-error');
+    if (!alert) return;
+
+    const failed = new URLSearchParams(window.location.search).has('error');
+    alert.classList.toggle('hidden', !failed);
+    if (failed) alert.focus();
+  }
+
+  syncContactError();
+  document.addEventListener('astro:after-swap', syncContactError);
+</script>

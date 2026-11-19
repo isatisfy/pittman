@@ -1357,6 +1357,64 @@
                           "text": "\n          Fill out the form below and we'll get back to you within one business day.\n        "
                         },
                         {
+                          "id": "r-code-jj",
+                          "tag": "astro-code",
+                          "attrs": {
+                            "builder-data-element": "code"
+                          },
+                          "children": [],
+                          "html": "<!--\n          Revealed by the script at the foot of this file when the handler\n          sends the visitor back with ?error. It cannot be rendered server-side\n          because this page is static HTML: there is no request to read the\n          query string from. It names the phone number and address on purpose,\n          so a failure is a detour rather than a dead end.\n        -->"
+                        },
+                        {
+                          "id": "r-div-jk",
+                          "tag": "div",
+                          "classes": [
+                            "mb-6",
+                            "hidden",
+                            "rounded-md",
+                            "border",
+                            "border-accent-ink/40",
+                            "bg-accent/10",
+                            "p-4"
+                          ],
+                          "attrs": {
+                            "id": "contact-error",
+                            "role": "alert",
+                            "tabindex": "-1"
+                          },
+                          "children": [
+                            {
+                              "id": "r-p-jl",
+                              "tag": "p",
+                              "classes": [
+                                "text-sm",
+                                "font-bold",
+                                "text-text"
+                              ],
+                              "text": "That message didn&rsquo;t send."
+                            },
+                            {
+                              "id": "r-p-jm",
+                              "tag": "p",
+                              "classes": [
+                                "mt-1.5",
+                                "text-sm",
+                                "text-text-muted"
+                              ],
+                              "html": "\n            Something went wrong at our end — please try again. If it keeps failing, call\n            <a href={`tel:${client.phoneForTel}`} class=\"font-medium text-primary underline underline-offset-2\">{client.phoneFormatted}</a>\n            or email\n            <a href={`mailto:${client.email}`} class=\"font-medium text-primary underline underline-offset-2\">{client.email}</a>.\n          "
+                            }
+                          ]
+                        },
+                        {
+                          "id": "r-code-jn",
+                          "tag": "astro-code",
+                          "attrs": {
+                            "builder-data-element": "code"
+                          },
+                          "children": [],
+                          "html": "<!--\n          Posts to a Vercel serverless function (api/contact.js), NOT to\n          Netlify Forms, which is what carried this form before the move to\n          Vercel. The function redirects to /contact/success when the message\n          is away and back here with ?error=send when it is not, so the form\n          still needs no JavaScript in order to work.\n        -->"
+                        },
+                        {
                           "id": "r-form-1u",
                           "tag": "form",
                           "classes": [
@@ -1367,19 +1425,17 @@
                           "attrs": {
                             "name": "contact",
                             "method": "POST",
-                            "data-netlify": "true",
-                            "netlify-honeypot": "bot-field",
-                            "action": "/contact/success"
+                            "action": "/api/contact"
                           },
                           "children": [
                             {
-                              "id": "r-input-1v",
-                              "tag": "input",
+                              "id": "r-code-jp",
+                              "tag": "astro-code",
                               "attrs": {
-                                "type": "hidden",
-                                "name": "form-name",
-                                "value": "contact"
-                              }
+                                "builder-data-element": "code"
+                              },
+                              "children": [],
+                              "html": "<!--\n            Honeypot. Spam bots fill in every field they find; api/contact.js\n            drops any submission that arrives with a value in this one. Kept\n            from both sight and assistive tech.\n          -->"
                             },
                             {
                               "id": "r-p-1w",
@@ -1808,6 +1864,15 @@
               "html": "<Footer slot=\"footer\" />"
             }
           ]
+        },
+        {
+          "id": "r-code-ma",
+          "tag": "astro-code",
+          "attrs": {
+            "builder-data-element": "code"
+          },
+          "children": [],
+          "html": "<script>\n  /**\n   * Show the failure notice when api/contact.js has sent the visitor back\n   * with ?error. This page is static, so the query string can only be read\n   * here, in the browser.\n   *\n   * Focus moves to the notice rather than merely scrolling to it: the visitor\n   * pressed Send and arrived somewhere new, so a screen reader needs to be\n   * told why, and a sighted visitor needs their eye taken to it.\n   */\n  function syncContactError() {\n    const alert = document.getElementById('contact-error');\n    if (!alert) return;\n\n    const failed = new URLSearchParams(window.location.search).has('error');\n    alert.classList.toggle('hidden', !failed);\n    if (failed) alert.focus();\n  }\n\n  syncContactError();\n  document.addEventListener('astro:after-swap', syncContactError);\n</script>"
         }
       ],
       "stylesheets": [
@@ -2298,7 +2363,7 @@
     "src/layouts/BaseLayout.astro": "d521e338c3cf8aa6+",
     "src/pages/about.astro": "8d88ab44a4595c99+",
     "src/pages/blog/index.astro": "d027caf3bfd4debd+",
-    "src/pages/contact/index.astro": "aaa5f6eb0511c9d4+",
+    "src/pages/contact/index.astro": "c90831bb01c532c8+",
     "src/pages/contact/success.astro": "32f9259b7e311836+",
     "src/pages/index.astro": "7b14583c8e69b3ea+",
     "src/pages/reviews.astro": "0a1da6700af75752+",

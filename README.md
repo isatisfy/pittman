@@ -1,13 +1,13 @@
 # Small Business Starter
 
-A fast, mobile-first website template for trade and service businesses — handymen, electricians, plumbers, landscapers, and more. Built with [Astro 6](https://astro.build) and [Tailwind CSS v4](https://tailwindcss.com). Ready to deploy on [Netlify](https://netlify.com) in minutes.
+A fast, mobile-first website template for trade and service businesses — handymen, electricians, plumbers, landscapers, and more. Built with [Astro 6](https://astro.build) and [Tailwind CSS v4](https://tailwindcss.com). Deployed on [Vercel](https://vercel.com).
 
 ---
 
 ## What's included
 
 - Full homepage with Hero, Trust Bar, Services, About, Reviews, Gallery, and CTA sections
-- Inner pages: About, Services, Contact (with Netlify Forms), Reviews, Blog
+- Inner pages: About, Services, Contact (form handled by a Vercel function), Reviews, Blog
 - SEO-ready: `<title>`, meta descriptions, canonical URLs, Open Graph, JSON-LD structured data, sitemap, robots.txt
 - Mobile-first responsive layout with a hamburger drawer nav and sticky desktop header
 - Astro View Transitions for smooth page navigation
@@ -33,7 +33,7 @@ npm run build
 npm run preview
 ```
 
-> **Note:** This project uses `npm`, and `package-lock.json` is the only committed lockfile. Do not use `pnpm` or `yarn` — a second lockfile changes which package manager Netlify picks, and a stale one will break the build.
+> **Note:** This project uses `npm`, and `package-lock.json` is the only committed lockfile. Do not use `pnpm` or `yarn` — a second lockfile changes which package manager Vercel picks, and a stale one will break the build.
 
 ---
 
@@ -137,7 +137,7 @@ small-business-starter/
 │   │   ├── services.astro
 │   │   ├── reviews.astro
 │   │   ├── contact/
-│   │   │   ├── index.astro     # Contact form (Netlify Forms-ready)
+│   │   │   ├── index.astro     # Contact form (posts to /api/contact)
 │   │   │   └── success.astro   # Confirmation page after form submit
 │   │   └── blog/
 │   │       ├── index.astro     # Blog listing
@@ -145,8 +145,10 @@ small-business-starter/
 │   └── styles/
 │       ├── global.css          # Base styles, dark mode, reduced motion
 │       └── theme.css           # Tailwind v4 @theme design tokens
+├── api/
+│   └── contact.js              # Serverless function behind the contact form
 ├── astro.config.mjs            # Astro config (fonts, integrations, site URL)
-├── netlify.toml                # Netlify build + security headers config
+├── vercel.json                 # Security headers + asset caching
 └── package.json
 ```
 
@@ -237,17 +239,50 @@ Set `draft: true` to write a post without publishing it.
 
 ---
 
-## Deploying to Netlify
+## Deploying to Vercel
 
 1. Push the project to a GitHub repository
-2. In Netlify, click **Add new site → Import an existing project** and connect the repo
-3. Netlify will auto-detect the build settings from `netlify.toml` — no manual config needed
-4. Set your live domain in two places after deploying:
+2. In Vercel, **Add New → Project** and import the repo
+3. Vercel auto-detects Astro and runs `npm run build`, serving `dist/`. The
+   `api/` directory is picked up separately as serverless functions — the site
+   itself stays `output: 'static'` and needs no Astro adapter.
+4. Node version comes from `engines.node` in `package.json`, so there is
+   nothing to set for it.
+5. Set the live domain in three places:
    - `src/data/client.ts` → `domain`
    - `src/config/brand.ts` → `url`
    - `astro.config.mjs` → `site`
 
-The `netlify.toml` file already includes security headers (`X-Frame-Options`, `X-Content-Type-Options`, etc.) and immutable caching for hashed assets.
+`vercel.json` carries the security headers (`X-Frame-Options`,
+`X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`) and
+immutable caching for hashed assets under `/_astro/`.
+
+### The contact form needs environment variables
+
+**Until these are set, the form will not send and every submission fails
+visibly.** That is deliberate — the alternative is a form that looks like it
+worked while the message goes nowhere.
+
+In Vercel, **Settings → Environment Variables**:
+
+| Variable | Required | What it is |
+|---|---|---|
+| `RESEND_API_KEY` | yes | API key from [Resend](https://resend.com) |
+| `CONTACT_FROM_EMAIL` | yes | Sender address, at a domain verified in Resend |
+| `CONTACT_TO_EMAIL` | no | Where enquiries land. Defaults to the address in `src/data/client.ts` |
+
+Redeploy after adding them — environment variables are read at run time, but a
+deployment created before they existed will not see them.
+
+The handler lives in `api/contact.js`. It checks the honeypot, validates the
+fields, sends the mail with the visitor's address as `reply_to`, then redirects
+to `/contact/success` — or back to `/contact/?error=send`, which reveals a
+notice offering the phone number instead. None of it needs JavaScript in the
+browser.
+
+Resend is reached through its plain REST API, so there is no dependency to
+install. Switching to Postmark, SendGrid or SMTP means rewriting one function,
+`sendEmail()`, and nothing else.
 
 ---
 
@@ -257,7 +292,8 @@ The `netlify.toml` file already includes security headers (`X-Frame-Options`, `X
 |---|---|---|
 | [Astro](https://astro.build) | 6 | Framework & static site generator |
 | [Tailwind CSS](https://tailwindcss.com) | 4 | Utility-first styling |
-| [Netlify](https://netlify.com) | — | Hosting, forms, CDN |
+| [Vercel](https://vercel.com) | — | Hosting, serverless functions, CDN |
+| [Resend](https://resend.com) | — | Sends the contact form on by email |
 | [npm](https://docs.npmjs.com) | 10+ | Package manager |
 
 ---
@@ -267,7 +303,7 @@ The `netlify.toml` file already includes security headers (`X-Frame-Options`, `X
 | Command | What it does |
 |---|---|
 | `npm install` | Install all dependencies |
-| `npm ci` | Clean install from `package-lock.json` (what Netlify runs) |
+| `npm ci` | Clean install from `package-lock.json` (what Vercel runs) |
 | `npm run dev` | Start dev server at `localhost:4321` |
 | `npm run build` | Build the production site to `./dist/` |
 | `npm run preview` | Preview the production build locally |
