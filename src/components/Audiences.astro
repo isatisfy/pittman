@@ -100,7 +100,17 @@ const icons: Record<Audience['icon'], string> = {
 };
 ---
 
-<section class="bg-background py-section" aria-labelledby="audiences-heading">
+<!--
+  Reduced top padding, full bottom padding. The hero above shares this
+  background, so its bottom padding and this top padding form a single visible
+  gap. Expressed against the section token rather than a fixed value so it
+  still tracks --spacing-section if that is ever retuned. The hero's bottom
+  padding was cut to match; change one and you should look at the other.
+-->
+<section
+  class="bg-background pt-[calc(var(--spacing-section)*0.6)] pb-section"
+  aria-labelledby="audiences-heading"
+>
   <div class="mx-auto max-w-site px-4 sm:px-6">
 
     <div class="mx-auto max-w-3xl text-center">

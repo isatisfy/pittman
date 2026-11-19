@@ -34,7 +34,15 @@ const {
 } = Astro.props;
 ---
 
-<section class="relative overflow-hidden bg-background py-12 sm:py-16 md:py-20 lg:py-24">
+<!--
+  Padding is deliberately asymmetric: the top keeps the full scale, the bottom
+  is ~40% smaller. The hero and the section under it share bg-background, so
+  the two paddings read as ONE band of whitespace and only their sum is
+  visible. The full py-* scale on both sides made that sum 196px at desktop,
+  which was too loose. Do not "tidy" this back to py-*; see also the matching
+  reduced top padding on Audiences.astro.
+-->
+<section class="relative overflow-hidden bg-background pt-12 pb-7 sm:pt-16 sm:pb-10 md:pt-20 md:pb-12 lg:pt-24 lg:pb-14">
   <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-12">
 
     <!-- Copy -->
