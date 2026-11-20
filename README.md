@@ -1,4 +1,4 @@
-# Small Business Starter
+# Small Business Starter - Fork created to customize for new client user
 
 A fast, mobile-first website template for trade and service businesses — handymen, electricians, plumbers, landscapers, and more. Built with [Astro 6](https://astro.build) and [Tailwind CSS v4](https://tailwindcss.com). Deployed on [Vercel](https://vercel.com).
 
